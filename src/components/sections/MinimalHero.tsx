@@ -194,7 +194,7 @@ export default function MinimalHero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1.5 }}
-          className="absolute left-1/2 transform -translate-x-1/2"
+          className="absolute md:bottom-1 left-1/2 transform -translate-x-1/2"
         >
           <motion.button
             onClick={scrollToNext}
