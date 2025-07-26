@@ -52,7 +52,7 @@ export default function MinimalHero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 md:px-8 bg-white relative overflow-hidden">
-      {/* Static code snippets with animations - hidden on mobile */}
+      {/* JavaScript code snippet with animation - hidden on mobile */}
       <motion.div 
         className="absolute top-20 left-20 -rotate-6 opacity-80 hidden md:block"
         animate={{ 
@@ -85,136 +85,15 @@ export default function MinimalHero() {
           </pre>
         </div>
       </motion.div>
-
-      <motion.div 
-        className="absolute bottom-40 right-20 rotate-3 opacity-80 hidden md:block"
-        animate={{ 
-          y: [0, -10, 0],
-          x: [0, -5, 0],
-          rotate: [3, 5, 3]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        }}
-      >
-        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-lg max-w-xs">
-          <div className="flex items-center mb-2">
-            <div className="h-3 w-3 rounded-full mr-2 bg-blue-500"></div>
-            <span className="text-xs font-medium text-gray-500">Python</span>
-          </div>
-          <pre className="text-xs overflow-hidden">
-            <code className="font-mono text-blue-500">
-              {`def embrace_challenges():
-    while True:
-        try:
-            solve_problem()
-            learn_from_mistakes()
-            grow_stronger()
-        except Obstacle as e:
-            overcome(e)`}
-            </code>
-          </pre>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="absolute top-40 right-32 -rotate-2 opacity-80 hidden md:block"
-        animate={{ 
-          y: [0, -8, 0],
-          x: [0, 8, 0],
-          rotate: [-2, 0, -2]
-        }}
-        transition={{
-          duration: 12,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        }}
-      >
-        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-lg max-w-xs">
-          <div className="flex items-center mb-2">
-            <div className="h-3 w-3 rounded-full mr-2 bg-orange-500"></div>
-            <span className="text-xs font-medium text-gray-500">Rust</span>
-          </div>
-          <pre className="text-xs overflow-hidden">
-            <code className="font-mono text-orange-500">
-              {`fn build_resilience() -> Result<Success, Failure> {
-    let mut attempts = 0;
-    loop {
-        attempts += 1;
-        if let Ok(success) = try_again() {
-            return Ok(success);
-        }
-        if attempts > 1000 { continue; }
-    }
-}`}
-            </code>
-          </pre>
-        </div>
-      </motion.div>
-
-      <motion.div 
-        className="absolute bottom-32 left-32 rotate-4 opacity-80 hidden md:block"
-        animate={{ 
-          y: [0, -12, 0],
-          x: [0, -6, 0],
-          rotate: [4, 2, 4]
-        }}
-        transition={{
-          duration: 15,
-          repeat: Infinity,
-          repeatType: "reverse",
-          ease: "easeInOut"
-        }}
-      >
-        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-lg max-w-xs">
-          <div className="flex items-center mb-2">
-            <div className="h-3 w-3 rounded-full mr-2 bg-cyan-500"></div>
-            <span className="text-xs font-medium text-gray-500">Go</span>
-          </div>
-          <pre className="text-xs overflow-hidden">
-            <code className="font-mono text-cyan-500">
-              {`func neverGiveUp(goal string) {
-  for {
-    progress := makeProgress(goal)
-    if progress.isComplete() {
-      celebrate()
-      break
-    }
-    learn(progress.lessons())
-  }
-}`}
-            </code>
-          </pre>
-        </div>
-      </motion.div>
       
       {/* Content */}
       <motion.div 
-        className="max-w-5xl mx-auto text-center relative z-10 pt-16 md:pt-0"
+        className="max-w-5xl mx-auto text-center relative z-10 pt-24 md:pt-12"
         variants={stagger}
         initial="initial"
         animate={controls}
       >
-        {/* Status indicator */}
-        <motion.div 
-          variants={fadeIn}
-          className="flex flex-wrap justify-center gap-2 md:gap-3 mb-6 md:mb-8"
-        >
-          <div className="flex items-center">
-            <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-            <span className="text-xs md:text-sm text-green-700 font-medium">
-              {currentStatus.availability}
-            </span>
-          </div>
-          <span className="hidden md:inline text-gray-300">•</span>
-          <MonoText className="text-gray-500 text-xs md:text-sm">
-            {currentStatus.location}
-          </MonoText>
-        </motion.div>
+
 
         {/* Name */}
         <motion.div variants={fadeIn} className="mb-4 md:mb-8">

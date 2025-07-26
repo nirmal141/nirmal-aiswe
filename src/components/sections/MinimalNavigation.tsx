@@ -96,12 +96,12 @@ export default function MinimalNavigation() {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-white/90 backdrop-blur-sm border-b border-gray-100 shadow-sm'
-          : 'bg-transparent'
+          ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
+          : 'bg-white/80 backdrop-blur-sm'
       }`}
     >
       <div className="max-w-6xl mx-auto px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14">
           {/* Logo */}
           <div className="flex items-center gap-6">
             <motion.a

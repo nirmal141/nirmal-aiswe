@@ -6,7 +6,7 @@ import { cn } from '../../lib/utils';
 
 // Inspirational code snippets in different languages
 const codeSnippets = [
-  {
+  { 
     language: 'JavaScript',
     code: `function createFuture() {
   const dreams = [];
@@ -17,76 +17,6 @@ const codeSnippets = [
 }`,
     color: 'text-yellow-500',
     bgColor: 'bg-yellow-50'
-  },
-  {
-    language: 'Python',
-    code: `def embrace_challenges():
-    while True:
-        try:
-            solve_problem()
-            learn_from_mistakes()
-            grow_stronger()
-        except Obstacle as e:
-            overcome(e)`,
-    color: 'text-blue-500',
-    bgColor: 'bg-blue-50'
-  },
-  {
-    language: 'Rust',
-    code: `fn build_resilience() -> Result<Success, Failure> {
-    let mut attempts = 0;
-    loop {
-        attempts += 1;
-        if let Ok(success) = try_again() {
-            return Ok(success);
-        }
-        if attempts > 1000 { continue; } // Never give up
-    }
-}`,
-    color: 'text-orange-500',
-    bgColor: 'bg-orange-50'
-  },
-  {
-    language: 'TypeScript',
-    code: `interface Dream {
-  vision: string;
-  execute(): Promise<Success>;
-}
-
-async function pursuePassion(dream: Dream): Promise<Success> {
-  const hardWork = new Persistence(dream.vision);
-  return await hardWork.untilSuccess();
-}`,
-    color: 'text-blue-400',
-    bgColor: 'bg-blue-50'
-  },
-  {
-    language: 'Go',
-    code: `func neverGiveUp(goal string) {
-  for {
-    progress := makeProgress(goal)
-    if progress.isComplete() {
-      celebrate()
-      break
-    }
-    learn(progress.lessons())
-  }
-}`,
-    color: 'text-cyan-500',
-    bgColor: 'bg-cyan-50'
-  },
-  {
-    language: 'Swift',
-    code: `func buildTheFuture() {
-  let vision = Vision(dream: "Better Tomorrow")
-  let determination = Determination.unlimited
-    
-  while !vision.isAchieved {
-    vision.workTowards(with: determination)
-  }
-}`,
-    color: 'text-orange-400',
-    bgColor: 'bg-orange-50'
   }
 ];
 
