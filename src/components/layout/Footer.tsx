@@ -170,9 +170,7 @@ export default function Footer() {
               <MonoText className="text-gray-500 text-sm">
                 © {currentYear} Nirmal Boghara
               </MonoText>
-              <MonoText className="text-gray-400 text-sm">
-                Built with Next.js & Tailwind CSS
-              </MonoText>
+              
             </div>
 
             {/* Back to Top */}
