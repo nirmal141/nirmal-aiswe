@@ -6,9 +6,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView, AnimatePresence } from 'framer-motion';
 import { DisplayText, Heading, MonoText, Caption } from '../ui/TypographyElements';
-import Image from 'next/image';
+import Image from 'next/image'; 
 
-const milestones = [
+const milestones = [  
     {
         id: 'goldenmace',
         year: 'May 2022 - July 2022',
@@ -777,6 +777,8 @@ export default function MinimalStory() {
             From computer engineering studies to leading AI innovations that generate 
             millions in business value. Here's how it unfolded.
           </motion.p>
+
+          
         </div>
       </section>
 
@@ -843,12 +845,12 @@ export default function MinimalStory() {
         </div>
       </section>
 
-
       {/* Skills Overview */}
       <SkillsOverview />
 
       {/* Key Achievements */}
       <WorkLifeBalance />
+
       {/* Current Status */}
       <section className="py-20 px-8 bg-gray-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -887,6 +889,7 @@ export default function MinimalStory() {
           </motion.div>
         </div>
       </section>
+
     </div>
   );
 }
