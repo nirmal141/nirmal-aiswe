@@ -57,7 +57,7 @@ const currentLocation = {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-8 bg-gray-50">
+    <section id="contact" className="py-32 px-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -69,13 +69,13 @@ export default function Contact() {
         >
           <DisplayText 
             weight="light" 
-            className="text-gray-900 mb-8 text-center"
+            className="text-gray-900 dark:text-white mb-8 text-center"
           >
             Let's Connect
           </DisplayText>
           
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-lg md:text-xl text-gray-600 font-light leading-relaxed mb-8">
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed mb-8">
               I'm always interested in discussing innovative AI projects, collaboration opportunities, 
               and ways to push the boundaries of what's possible with technology.
             </p>
@@ -83,9 +83,9 @@ export default function Contact() {
             <div className="flex justify-center items-center gap-8 text-sm">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700 font-medium">Available for new projects</span>
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Available for new projects</span>
               </div>
-              <MonoText className="text-gray-500">
+              <MonoText className="text-gray-500 dark:text-gray-400">
                 {currentLocation.city}, {currentLocation.country}
               </MonoText>
             </div>
@@ -102,7 +102,7 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <Heading level={3} weight="medium" className="mb-8 text-gray-900">
+              <Heading level={3} weight="medium" className="mb-8 text-gray-900 dark:text-white">
                 Get in Touch
               </Heading>
               
@@ -114,24 +114,24 @@ export default function Contact() {
                       key={method.label}
                       animated
                       delay={index * 0.1}
-                      className="group cursor-pointer hover:border-gray-300 transition-all duration-300"
+                      className="group cursor-pointer hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300"
                       onClick={() => window.open(method.href, '_blank')}
                     >
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
-                          <div className="p-2 bg-gray-50 rounded-lg group-hover:bg-gray-100 transition-colors">
-                            <IconComponent size={20} className="text-gray-700" />
+                          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded-lg group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors">
+                            <IconComponent size={20} className="text-gray-700 dark:text-gray-300" />
                           </div>
                           <ArrowUpRight 
                             size={16} 
-                            className="text-gray-400 group-hover:text-gray-900 transition-colors" 
+                            className="text-gray-400 dark:text-gray-500 group-hover:text-gray-900 dark:group-hover:text-white transition-colors" 
                           />
                         </div>
                         
                         <div>
-                          <Caption className="mb-1">{method.label}</Caption>
+                          <Caption className="mb-1 text-gray-600 dark:text-gray-400">{method.label}</Caption>
                          
-                          <p className="text-sm text-gray-500">
+                          <p className="text-sm text-gray-500 dark:text-gray-400">
                             {method.description}
                           </p>
                         </div>
@@ -142,12 +142,12 @@ export default function Contact() {
               </div>
 
               {/* Availability Status */}
-              <div className="p-6 bg-white border border-gray-200 rounded-lg">
+              <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
                 <div className="flex items-center justify-between mb-4">
-                  <Caption>Current Availability</Caption>
+                  <Caption className="text-gray-600 dark:text-gray-400">Current Availability</Caption>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <MonoText className="text-green-700">
+                    <MonoText className="text-green-700 dark:text-green-400">
                       {availabilityStatus.status}
                     </MonoText>
                   </div>
@@ -155,20 +155,20 @@ export default function Contact() {
                 
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-4 text-sm">
                   <div>
-                    <div className="text-gray-500 mb-1">Response Time</div>
-                    <div className="text-gray-900 font-medium">
+                    <div className="text-gray-500 dark:text-gray-400 mb-1">Response Time</div>
+                    <div className="text-gray-900 dark:text-white font-medium">
                       {availabilityStatus.responseTime}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-500 mb-1">Timezone</div>
-                    <div className="text-gray-900 font-medium">
+                    <div className="text-gray-500 dark:text-gray-400 mb-1">Timezone</div>
+                    <div className="text-gray-900 dark:text-white font-medium">
                       {availabilityStatus.timezone}
                     </div>
                   </div>
                   <div>
-                    <div className="text-gray-500 mb-1">Work Type</div>
-                    <div className="text-gray-900 font-medium">
+                    <div className="text-gray-500 dark:text-gray-400 mb-1">Work Type</div>
+                    <div className="text-gray-900 dark:text-white font-medium">
                       {currentLocation.open_to}
                     </div>
                   </div>
@@ -188,7 +188,7 @@ export default function Contact() {
             >
               {/* What I'm Looking For */}
               <div>
-                <Caption className="mb-4">What I'm Looking For</Caption>
+                <Caption className="mb-4 text-gray-600 dark:text-gray-400">What I'm Looking For</Caption>
                 <div className="space-y-3">
                   {interests.map((interest, index) => (
                     <motion.div
@@ -197,10 +197,10 @@ export default function Contact() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.05 * index }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-3 p-3 bg-white border border-gray-100 rounded-lg hover:border-gray-200 transition-colors"
+                      className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg hover:border-gray-200 dark:hover:border-gray-600 transition-colors"
                     >
-                      <div className="w-1.5 h-1.5 bg-gray-400 rounded-full"></div>
-                      <span className="text-gray-700 text-sm font-medium">
+                      <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
+                      <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
                         {interest}
                       </span>
                     </motion.div>
@@ -210,28 +210,28 @@ export default function Contact() {
 
               {/* Location & Preferences */}
               <div>
-                <Caption className="mb-4">Location & Work Preferences</Caption>
-                <div className="space-y-4 p-4 bg-white border border-gray-200 rounded-lg">
+                <Caption className="mb-4 text-gray-600 dark:text-gray-400">Location & Work Preferences</Caption>
+                <div className="space-y-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Current Location</span>
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Current Location</span>
                     <div className="flex items-center gap-2">
-                      <MapPin size={14} className="text-gray-400" />
-                      <span className="text-gray-900 font-medium text-sm">
+                      <MapPin size={14} className="text-gray-400 dark:text-gray-500" />
+                      <span className="text-gray-900 dark:text-white font-medium text-sm">
                         {currentLocation.city}, {currentLocation.country}
                       </span>
                     </div>
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Work Style</span>
-                    <span className="text-gray-900 font-medium text-sm">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Work Style</span>
+                    <span className="text-gray-900 dark:text-white font-medium text-sm">
                       {currentLocation.open_to}
                     </span>
                   </div>
                   
                   <div className="flex items-center justify-between">
-                    <span className="text-gray-600 text-sm">Travel</span>
-                    <span className="text-gray-900 font-medium text-sm">
+                    <span className="text-gray-600 dark:text-gray-400 text-sm">Travel</span>
+                    <span className="text-gray-900 dark:text-white font-medium text-sm">
                       Open to relocation
                     </span>
                   </div>
@@ -250,7 +250,7 @@ export default function Contact() {
           className="text-center"
         >
           <div className="max-w-2xl mx-auto mb-8">
-            <MonoText className="text-gray-700 text-lg leading-relaxed">
+            <MonoText className="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
               "The best way to predict the future is to invent it. 
               Let's build something incredible together."
             </MonoText>
@@ -259,13 +259,13 @@ export default function Contact() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
               onClick={() => window.open('mailto:nb3964@nyu.edu', '_blank')}
-              className="px-8 py-3 bg-gray-900 text-white hover:bg-gray-800 transition-all duration-300 hover:scale-[1.02]"
+              className="px-8 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:bg-gray-800 dark:hover:bg-gray-100 transition-all duration-300 hover:scale-[1.02]"
             >
               Start a Conversation
             </button>
             <button 
               onClick={() => window.open('https://www.linkedin.com/in/nirmal-boghara/', '_blank')}
-              className="px-8 py-3 border border-gray-300 text-gray-700 hover:border-gray-900 hover:text-gray-900 transition-all duration-300"
+              className="px-8 py-3 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-900 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-all duration-300"
             >
               Connect on LinkedIn
             </button>

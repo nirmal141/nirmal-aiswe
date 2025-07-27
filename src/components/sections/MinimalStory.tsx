@@ -205,22 +205,22 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
       {/* Content */}
       <div className="pl-20 pb-16">
         {/* Year */}
-        <MonoText className="text-gray-500 text-sm mb-2">
+        <MonoText className="text-gray-500 dark:text-gray-400 text-sm mb-2">
           {milestone.year}
         </MonoText>
 
         {/* Title & Company */}
         <div className="mb-4">
-          <h3 className="text-2xl font-medium text-gray-900 mb-1 group">
+          <h3 className="text-2xl font-medium text-gray-900 dark:text-white mb-1 group">
             {milestone.title}
             {milestone.type === 'experience' && (
-              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-blue-50 text-blue-600">Experience</span>
+              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300">Experience</span>
             )}
             {milestone.type === 'education' && (
-              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-emerald-50 text-emerald-600">Education</span>
+              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-emerald-50 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300">Education</span>
             )}
           </h3>
-          <div className="flex items-center gap-2 text-gray-600">
+                          <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
             {milestone.website ? (
               <a 
                 href={milestone.website} 
@@ -243,13 +243,13 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
         </div>
 
         {/* Description */}
-        <p className="text-gray-700 leading-relaxed mb-4">
+        <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
           {milestone.description}
         </p>
 
         {/* Achievement badge */}
-        <div className="inline-flex items-center px-3 py-1 bg-gray-100 border border-gray-200 rounded-full">
-          <span className="text-sm text-gray-700 font-medium">
+        <div className="inline-flex items-center px-3 py-1 bg-gray-100 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full">
+          <span className="text-sm text-gray-700 dark:text-gray-300 font-medium">
             {milestone.achievement}
           </span>
         </div>
@@ -276,26 +276,26 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
                 {/* Sub-achievement content */}
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <h4 className="text-lg font-medium text-gray-800">{subItem.title}</h4>
+                    <h4 className="text-lg font-medium text-gray-800 dark:text-white">{subItem.title}</h4>
                   </div>
-                  <MonoText className="text-gray-500 text-xs mb-2">
+                  <MonoText className="text-gray-500 dark:text-gray-400 text-xs mb-2">
                     {subItem.period}
                   </MonoText>
-                  <p className="text-gray-700 text-sm mb-2">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm mb-2">
                     {subItem.description}
                   </p>
-                  <div className="flex items-center gap-3 mb-3">
-                    <div className="inline-flex items-center px-2 py-0.5 bg-gray-50 border border-gray-200 rounded-full">
-                      <span className="text-xs text-gray-700">
-                        {subItem.achievement}
-                      </span>
-                    </div>
+                                      <div className="flex items-center gap-3 mb-3">
+                      <div className="inline-flex items-center px-2 py-0.5 bg-gray-50 dark:bg-gray-700 border border-gray-200 dark:border-gray-600 rounded-full">
+                        <span className="text-xs text-gray-700 dark:text-gray-300">
+                          {subItem.achievement}
+                        </span>
+                      </div>
                     {subItem.link && (
                       <a 
                         href={subItem.link} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-xs bg-blue-50 text-blue-600 hover:text-blue-800 hover:bg-blue-100 transition-colors px-2 py-1 rounded-md border border-blue-100"
+                        className="inline-flex items-center text-xs bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300 hover:text-blue-800 dark:hover:text-blue-200 hover:bg-blue-100 dark:hover:bg-blue-800 transition-colors px-2 py-1 rounded-md border border-blue-100 dark:border-blue-700"
                       >
                         <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor" className="mr-1" viewBox="0 0 16 16">
                           <path fillRule="evenodd" d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
@@ -313,7 +313,7 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
                         {subItem.images.map((img: any, imgIndex: number) => (
                           <div 
                             key={imgIndex} 
-                            className="overflow-hidden rounded-lg border border-gray-200 flex-grow-0"
+                            className="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600 flex-grow-0"
                             style={{ maxWidth: 'calc(50% - 4px)', flexBasis: 'calc(50% - 4px)' }}
                           >
                             <Image
@@ -331,7 +331,7 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
 
                   {/* Legacy support for single image */}
                   {subItem.image && !subItem.images && (
-                    <div className="mt-2 overflow-hidden rounded-lg border border-gray-200">
+                    <div className="mt-2 overflow-hidden rounded-lg border border-gray-200 dark:border-gray-600">
                       <Image
                         src={subItem.image}
                         alt={subItem.imageAlt || `Image for ${subItem.title}`}
@@ -355,22 +355,34 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
 const TimelineFilter = ({ activeFilter, setActiveFilter }: { activeFilter: string; setActiveFilter: (filter: string) => void }) => {
   return (
     <div className="flex justify-center mb-12">
-      <div className="inline-flex p-1 bg-gray-100 rounded-lg">
+      <div className="inline-flex p-1 bg-gray-100 dark:bg-gray-800 rounded-lg">
         <button 
           onClick={() => setActiveFilter('all')}
-          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeFilter === 'all' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}
+          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+            activeFilter === 'all' 
+              ? 'bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white' 
+              : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+          }`}
         >
           All
         </button>
         <button 
           onClick={() => setActiveFilter('experience')}
-          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeFilter === 'experience' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}
+          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+            activeFilter === 'experience' 
+              ? 'bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white' 
+              : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+          }`}
         >
           Experience
         </button>
         <button 
           onClick={() => setActiveFilter('education')}
-          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${activeFilter === 'education' ? 'bg-white shadow-sm text-gray-900' : 'text-gray-600 hover:text-gray-900'}`}
+          className={`px-4 py-2 text-sm font-medium rounded-md transition-colors ${
+            activeFilter === 'education' 
+              ? 'bg-white dark:bg-gray-700 shadow-sm text-gray-900 dark:text-white' 
+              : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
+          }`}
         >
           Education
         </button>
@@ -388,7 +400,7 @@ const YearNavigation = ({ years, activeYear, setActiveYear }: { years: string[];
           <button
             key={year}
             onClick={() => setActiveYear(year)}
-            className={`text-left text-sm py-1 transition-colors ${activeYear === year ? 'text-blue-600 font-medium' : 'text-gray-500 hover:text-gray-900'}`}
+            className={`text-left text-sm py-1 transition-colors ${activeYear === year ? 'text-blue-600 dark:text-blue-400 font-medium' : 'text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white'}`}
           >
             {year}
           </button>
@@ -427,10 +439,10 @@ const SkillsOverview = () => {
           className="text-center mb-16"
           {...fadeInUp}
         >
-          <Heading level={2} weight="medium" className="text-gray-900 mb-4">
+          <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-4">
             Technical Expertise
           </Heading>
-          <p className="text-lg text-gray-600 font-light">
+          <p className="text-lg text-gray-600 dark:text-gray-300 font-light">
             Technologies and frameworks I work with regularly
           </p>
         </motion.div>
@@ -444,14 +456,14 @@ const SkillsOverview = () => {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-lg font-medium text-gray-900 mb-4">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-4">
                 {category.title}
               </h3>
               <div className="space-y-2">
                 {category.skills.map((skill) => (
                   <div
                     key={skill}
-                    className="text-gray-700 py-1 text-sm"
+                    className="text-gray-700 dark:text-gray-300 py-1 text-sm"
                   >
                     {skill}
                   </div>
@@ -512,7 +524,7 @@ const WorkLifeBalance = () => {
     };
   
     return (
-      <section className="py-24 px-8 bg-gradient-to-b from-gray-50 to-white overflow-hidden">
+      <section className="py-24 px-8 bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
@@ -525,24 +537,24 @@ const WorkLifeBalance = () => {
             {/* Subtle decorative element */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-1 bg-gray-200 rounded-full mb-6"></div>
             
-            <Heading level={2} weight="medium" className="text-gray-900 mb-4 pt-8">
+            <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-4 pt-8">
               Mind & Body Balance
             </Heading>
-            <p className="text-lg text-gray-600 font-light max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 font-light max-w-2xl mx-auto">
               My athletic pursuits directly enhance my technical abilities.
               Balance isn't just a philosophy—it's how I consistently deliver results.
             </p>
           </motion.div>
   
           {/* Interactive balance visualization */}
-          <div className="relative mb-24 h-20">
+          <div className="relative mb-24 h-32">
             <div className="max-w-4xl mx-auto px-4 relative h-full flex items-center">
               {/* Center balance beam - make it thinner and more elegant */}
-              <div className="absolute left-0 right-0 top-1/2 h-[1px] bg-gray-200 -translate-y-1/2"></div>
+              <div className="absolute left-0 right-0 top-1/2 h-[1px] bg-gray-200 dark:bg-gray-600 -translate-y-1/2"></div>
               
               {/* Balance point - refined design */}
               <motion.div 
-                className="absolute left-1/2 top-1/2 w-3 h-3 bg-white border border-gray-300 rounded-full -translate-x-1/2 -translate-y-1/2 z-10 shadow-sm"
+                className="absolute left-1/2 top-1/2 w-3 h-3 bg-white dark:bg-gray-300 border border-gray-300 dark:border-gray-500 rounded-full -translate-x-1/2 -translate-y-1/2 z-10 shadow-sm"
                 animate={{ 
                   x: [-2, 2, -1, 1, 0],
                   rotate: [-0.5, 0.5, -0.2, 0.2, 0]
@@ -554,10 +566,10 @@ const WorkLifeBalance = () => {
                 }}
               ></motion.div>
               
-              {/* Labels - better positioning and styling */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2">
+              {/* Labels - positioned above and below the line to avoid overlap */}
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-y-8">
                 <motion.div 
-                  className="font-medium text-gray-600 text-sm"
+                  className="font-medium text-gray-600 dark:text-gray-400 text-sm"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.3 }}
@@ -567,9 +579,9 @@ const WorkLifeBalance = () => {
                 </motion.div>
               </div>
               
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 text-right">
+              <div className="absolute right-0 top-1/2 -translate-y-1/2 -translate-y-8 text-right">
                 <motion.div 
-                  className="font-medium text-gray-600 text-sm"
+                  className="font-medium text-gray-600 dark:text-gray-400 text-sm"
                   initial={{ opacity: 0 }}
                   whileInView={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
@@ -591,9 +603,9 @@ const WorkLifeBalance = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 viewport={{ once: true }}
                 className={`
-                  relative overflow-hidden rounded-lg border border-gray-100
+                  relative overflow-hidden rounded-lg border border-gray-100 dark:border-gray-700
                   ${activeCard === item.id ? 'shadow-md transform scale-[1.01]' : 'shadow-sm'}
-                  transition-all duration-300 ease-in-out bg-white h-full
+                  transition-all duration-300 ease-in-out bg-white dark:bg-gray-800 h-full
                 `}
                 onMouseEnter={() => handleCardHover(item.id)}
                 onMouseLeave={handleCardLeave}
@@ -606,28 +618,28 @@ const WorkLifeBalance = () => {
                   {/* Icon and sport name */}
                   <div className="flex items-center mb-5">
                     <span className="text-4xl mr-4">{item.icon}</span>
-                    <h3 className="text-xl font-medium text-gray-900">{item.sport}</h3>
+                    <h3 className="text-xl font-medium text-gray-900 dark:text-white">{item.sport}</h3>
                   </div>
                   
                   {/* Sport metric */}
-                  <div className="bg-gray-100 rounded-md px-3 py-1 text-xs text-gray-600 inline-block mb-4 font-medium">
+                  <div className="bg-gray-100 dark:bg-gray-700 rounded-md px-3 py-1 text-xs text-gray-600 dark:text-gray-300 inline-block mb-4 font-medium">
                     {item.sportMetric}
                   </div>
                   
                   {/* Tech benefit */}
                   <div className="mb-4">
-                    <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">ENHANCES</div>
-                    <div className="font-medium text-gray-800">{item.techBenefit}</div>
+                    <div className="text-xs uppercase tracking-wider text-gray-500 dark:text-gray-400 mb-1">ENHANCES</div>
+                    <div className="font-medium text-gray-800 dark:text-white">{item.techBenefit}</div>
                   </div>
                   
                   {/* Description */}
-                  <p className="text-sm text-gray-600 mb-4">
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">
                     {item.description}
                   </p>
                   
                   {/* Quote */}
                   <div className="mt-auto">
-                    <blockquote className="text-sm italic border-l-2 border-gray-200 pl-3 text-gray-500">
+                    <blockquote className="text-sm italic border-l-2 border-gray-200 dark:border-gray-600 pl-3 text-gray-500 dark:text-gray-400">
                       "{item.quote}"
                     </blockquote>
                   </div>
@@ -649,51 +661,12 @@ const WorkLifeBalance = () => {
             ))}
           </div>
           
-          {/* Bottom visualization - balance wheel */}
-          <motion.div 
-            className="max-w-md mx-auto relative h-[120px] mb-16 bg-white rounded-lg shadow-sm p-4"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            viewport={{ once: true }}
-          >
-            <svg viewBox="0 0 400 120" className="w-full h-full">
-              {/* Circular track - lighter background */}
-              <circle cx="200" cy="60" r="50" fill="none" stroke="#f3f4f6" strokeWidth="6" strokeLinecap="round" />
-              
-              {/* Progress segments - subtle gray with slight difference */}
-              <motion.path
-                d="M200,10 A50,50 0 0,1 250,60"
-                fill="none" 
-                stroke="#e2e8f0"
-                strokeWidth="6"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: 0.5 }}
-                viewport={{ once: true }}
-              />
-              <motion.path
-                d="M250,60 A50,50 0 0,1 200,110"
-                fill="none" 
-                stroke="#d1d5db"
-                strokeWidth="6"
-                strokeLinecap="round"
-                initial={{ pathLength: 0 }}
-                whileInView={{ pathLength: 1 }}
-                transition={{ duration: 1.5, delay: 1 }}
-                viewport={{ once: true }}
-              />
-              
-              {/* Center text - refined typography */}
-              <text x="200" y="64" textAnchor="middle" fontSize="22" fontWeight="medium" letterSpacing="0.05em" fill="#111827">100% BALANCED</text>
-            </svg>
-          </motion.div>
+          
           
           {/* Bottom quote */}
           <div className="text-center">
             <motion.p
-              className="text-base text-gray-600 italic max-w-2xl mx-auto"
+              className="text-base text-gray-600 dark:text-gray-300 italic max-w-2xl mx-auto"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -758,18 +731,18 @@ export default function MinimalStory() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-white">
+    <div ref={containerRef} className="bg-white dark:bg-gray-900 transition-colors duration-500">
       {/* Hero section */}
       <section className="py-32 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
-            <DisplayText weight="light" className="text-gray-900 mb-6">
+            <DisplayText weight="light" className="text-gray-900 dark:text-white mb-6">
               My Journey
             </DisplayText>
           </motion.div>
           
           <motion.p
-            className="text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto"
+            className="text-xl text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -789,10 +762,10 @@ export default function MinimalStory() {
             className="mb-16"
             {...fadeInUp}
           >
-            <Heading level={2} weight="medium" className="text-gray-900 mb-4 text-center">
+            <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-4 text-center">
               Career Timeline
             </Heading>
-            <p className="text-lg text-gray-600 font-light text-center mb-8">
+            <p className="text-lg text-gray-600 dark:text-gray-300 font-light text-center mb-8">
               Key milestones and achievements from education to industry impact
             </p>
             
@@ -836,7 +809,7 @@ export default function MinimalStory() {
                     animate={{ opacity: 1 }}
                     className="py-16 text-center"
                   >
-                    <p className="text-gray-500">No entries found for the selected filters.</p>
+                    <p className="text-gray-500 dark:text-gray-400">No entries found for the selected filters.</p>
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -852,40 +825,40 @@ export default function MinimalStory() {
       <WorkLifeBalance />
 
       {/* Current Status */}
-      <section className="py-20 px-8 bg-gray-50">
+      <section className="py-20 px-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
-            <Heading level={2} weight="medium" className="text-gray-900 mb-6">
+            <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-6">
               What's Next
             </Heading>
             
-            <div className="grid md:grid-cols-2 gap-8 text-left">
-              <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  Currently
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Building mutliple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
-                </p>
-                <div className="flex items-center gap-2">
-                  <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                  <span className="text-sm text-green-700">Available for opportunities</span>
+                          <div className="grid md:grid-cols-2 gap-8 text-left">
+                <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
+                    Currently
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Building mutliple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
+                  </p>
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                    <span className="text-sm text-green-700 dark:text-green-400">Available for opportunities</span>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
+                    Looking For
+                  </h3>
+                  <p className="text-gray-700 dark:text-gray-300 mb-4">
+                    Full-time opportunities in AI/ML engineering, technical leadership roles, 
+                    or innovative startups building the future.
+                  </p>
+                  <MonoText className="text-gray-500 dark:text-gray-400 text-sm">
+                    Expected graduation: May 2026
+                  </MonoText>
                 </div>
               </div>
-
-              <div className="p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                <h3 className="text-lg font-medium text-gray-900 mb-3">
-                  Looking For
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Full-time opportunities in AI/ML engineering, technical leadership roles, 
-                  or innovative startups building the future.
-                </p>
-                <MonoText className="text-gray-500 text-sm">
-                  Expected graduation: May 2026
-                </MonoText>
-              </div>
-            </div>
           </motion.div>
         </div>
       </section>

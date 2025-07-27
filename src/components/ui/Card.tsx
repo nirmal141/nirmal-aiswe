@@ -23,8 +23,8 @@ export function Card({
   ...props
 }: CardProps) {
   const cardClasses = cn(
-    'bg-white border border-gray-100',
-    hover && 'hover:border-gray-200 hover:shadow-sm transition-all duration-300',
+    'bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700',
+    hover && 'hover:border-gray-200 dark:hover:border-gray-600 hover:shadow-sm transition-all duration-300',
     onClick && 'cursor-pointer',
     className
   );

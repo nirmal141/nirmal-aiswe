@@ -27,6 +27,24 @@
   
   --gradient-text: linear-gradient(135deg, #1a1a1a 0%, #666666 100%);
   --gradient-subtle: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  
+  /* Light mode colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #fafafa;
+  --text-primary: #171717;
+  --text-secondary: #404040;
+  --border-color: #e5e5e5;
+  --accent-color: #737373;
+}
+
+/* Dark mode colors */
+.dark {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #171717;
+  --text-primary: #fafafa;
+  --text-secondary: #a3a3a3;
+  --border-color: #262626;
+  --accent-color: #d4d4d4;
 }
 
 /* Base Styles */
@@ -45,12 +63,13 @@ body {
   font-family: var(--font-body);
   font-weight: 300;
   line-height: 1.6;
-  color: #171717;
-  background: #ffffff;
+  color: var(--text-primary);
+  background: var(--bg-primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
   font-variant-ligatures: common-ligatures;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 /* Typography Classes */

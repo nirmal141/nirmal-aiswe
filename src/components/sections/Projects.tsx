@@ -97,7 +97,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8">
+    <section className="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white dark:bg-gray-900 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -109,10 +109,10 @@ export default function Projects() {
         >
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 md:gap-8">
             <div>
-              <Heading level={2} weight="medium" className="text-gray-900 mb-3 md:mb-4 text-2xl md:text-3xl lg:text-4xl">
+              <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-3 md:mb-4 text-2xl md:text-3xl lg:text-4xl">
                 Selected Works
               </Heading>
-              <p className="text-base md:text-lg text-gray-600 font-light max-w-2xl">
+              <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-light max-w-2xl">
                 A collection of projects demonstrating expertise in AI, machine learning, 
                 and full-stack development—each solving real-world problems.
               </p>
@@ -148,30 +148,30 @@ export default function Projects() {
                     <div className="flex items-start justify-between mb-4 md:mb-6">
                       <div>
                         <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-1 md:mb-2">
-                          <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-900">
-                            {project.title}
-                          </h3>
-                          <MonoText className="text-gray-500 text-sm md:text-base">
-                            {project.year}
-                          </MonoText>
-                        </div>
-                        <p className="text-base md:text-lg text-gray-600">
-                          {project.subtitle}
-                        </p>
+                                                  <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-900 dark:text-white">
+                          {project.title}
+                        </h3>
+                        <MonoText className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
+                          {project.year}
+                        </MonoText>
+                      </div>
+                      <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
+                        {project.subtitle}
+                      </p>
                       </div>
                       
                       <Link 
                         href={project.link} 
                         target="_blank" 
                         rel="noopener noreferrer" 
-                        className="p-1 md:p-2 text-gray-400 hover:text-gray-900 transition-colors z-20 relative pointer-events-auto"
+                        className="p-1 md:p-2 text-gray-400 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors z-20 relative pointer-events-auto"
                         onClick={(e) => e.stopPropagation()}
                       >
                         <ArrowUpRight size={18} className="md:w-5 md:h-5" />
                       </Link>
                     </div>
 
-                    <p className="text-sm md:text-base lg:text-lg text-gray-700 leading-relaxed mb-5 md:mb-8">
+                    <p className="text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5 md:mb-8">
                       {project.description}
                     </p>
 
@@ -179,7 +179,7 @@ export default function Projects() {
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-2 md:px-3 py-0.5 md:py-1 bg-gray-50 border border-gray-100 text-xs md:text-sm text-gray-700 rounded-sm"
+                          className="px-2 md:px-3 py-0.5 md:py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-sm"
                         >
                           {tech}
                         </span>
@@ -190,24 +190,24 @@ export default function Projects() {
                       <div className="flex flex-wrap gap-4 md:gap-8">
                         {project.metrics.map((metric) => (
                           <div key={metric.label} className="min-w-[80px]">
-                            <div className="text-lg md:text-2xl font-light text-gray-900">
+                            <div className="text-lg md:text-2xl font-light text-gray-900 dark:text-white">
                               {metric.value}
                             </div>
-                            <Caption className="text-xs md:text-sm">{metric.label}</Caption>
+                            <Caption className="text-xs md:text-sm text-gray-600 dark:text-gray-400">{metric.label}</Caption>
                           </div>
                         ))}
                       </div>
                       
-                      <Caption className="text-gray-900 text-xs md:text-sm">
+                      <Caption className="text-gray-900 dark:text-white text-xs md:text-sm">
                         {project.status}
                       </Caption>
                     </div>
                   </div>
 
-                  <div className="lg:col-span-4 bg-gray-50 p-5 md:p-8 lg:p-12 flex items-center justify-center min-h-[200px] md:min-h-[250px] lg:min-h-[300px] relative z-10 pointer-events-none">
+                  <div className="lg:col-span-4 bg-gray-50 dark:bg-gray-800 p-5 md:p-8 lg:p-12 flex items-center justify-center min-h-[200px] md:min-h-[250px] lg:min-h-[300px] relative z-10 pointer-events-none">
                     <div className="text-center">
-                      <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-200 rounded-full mb-3 md:mb-4 mx-auto"></div>
-                      <MonoText className="text-xs md:text-sm">Project Preview</MonoText>
+                                              <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-200 dark:bg-gray-600 rounded-full mb-3 md:mb-4 mx-auto"></div>
+                                              <MonoText className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Project Preview</MonoText>
                     </div>
                   </div>
                 </>
@@ -217,14 +217,14 @@ export default function Projects() {
                   <div className="flex items-start justify-between mb-3 md:mb-4">
                     <div>
                       <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-1 md:mb-2">
-                        <h3 className="text-lg md:text-xl font-medium text-gray-900">
+                        <h3 className="text-lg md:text-xl font-medium text-gray-900 dark:text-white">
                           {project.title}
                         </h3>
-                        <MonoText className="text-gray-500 text-sm">
+                        <MonoText className="text-gray-500 dark:text-gray-400 text-sm">
                           {project.year}
                         </MonoText>
                       </div>
-                      <p className="text-sm md:text-base text-gray-600">
+                      <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
                         {project.subtitle}
                       </p>
                     </div>
@@ -233,14 +233,14 @@ export default function Projects() {
                       href={project.link} 
                       target="_blank" 
                       rel="noopener noreferrer" 
-                      className="p-1 md:p-2 text-gray-400 hover:text-gray-900 transition-colors z-20 relative pointer-events-auto"
+                      className="p-1 md:p-2 text-gray-400 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors z-20 relative pointer-events-auto"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <ArrowUpRight size={16} className="md:w-4 md:h-4" />
                     </Link>
                   </div>
 
-                  <p className="text-sm md:text-base text-gray-700 leading-relaxed mb-4 md:mb-6">
+                  <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 md:mb-6">
                     {project.description}
                   </p>
 
@@ -248,7 +248,7 @@ export default function Projects() {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 md:py-1 bg-gray-50 border border-gray-100 text-xs text-gray-700 rounded-sm"
+                        className="px-2 py-0.5 md:py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 text-xs text-gray-700 dark:text-gray-300 rounded-sm"
                       >
                         {tech}
                       </span>
@@ -259,15 +259,15 @@ export default function Projects() {
                     <div className="flex flex-wrap gap-4 md:gap-6">
                       {project.metrics.map((metric) => (
                         <div key={metric.label} className="min-w-[80px]">
-                          <div className="text-base md:text-lg font-light text-gray-900">
+                          <div className="text-base md:text-lg font-light text-gray-900 dark:text-white">
                             {metric.value}
                           </div>
-                          <Caption className="text-xs">{metric.label}</Caption>
+                          <Caption className="text-xs text-gray-600 dark:text-gray-400">{metric.label}</Caption>
                         </div>
                       ))}
                     </div>
                     
-                    <Caption className="text-gray-900 text-xs md:text-sm">
+                    <Caption className="text-gray-900 dark:text-white text-xs md:text-sm">
                       {project.status}
                     </Caption>
                   </div>
@@ -285,10 +285,10 @@ export default function Projects() {
           viewport={{ once: true }}
           className="mt-12 md:mt-16 lg:mt-20 text-center"
         >
-          <p className="text-base md:text-lg text-gray-600 font-light mb-6 md:mb-8">
+          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300 font-light mb-6 md:mb-8">
             Interested in collaborating on your next project?
           </p>
-          <button className="px-6 md:px-8 py-2.5 md:py-3 border border-gray-900 text-gray-900 text-sm md:text-base hover:bg-gray-900 hover:text-white transition-all duration-300">
+          <button className="px-6 md:px-8 py-2.5 md:py-3 border border-gray-900 dark:border-gray-300 text-gray-900 dark:text-gray-300 text-sm md:text-base hover:bg-gray-900 dark:hover:bg-gray-300 hover:text-white dark:hover:text-gray-900 transition-all duration-300">
             Let's Work Together
           </button>
         </motion.div>

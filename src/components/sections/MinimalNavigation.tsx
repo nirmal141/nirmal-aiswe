@@ -5,7 +5,9 @@
 
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X, Clock } from 'lucide-react';
+import { Menu, X, Clock, Sun, Moon } from 'lucide-react';
+import HangingLightBulb from '../ui/HangingLightBulb';
+import { useTheme } from '../../lib/theme-context';
 
 const navItems = [
   { name: 'Story', href: '#story' },
@@ -14,15 +16,24 @@ const navItems = [
 ];
 
 export default function MinimalNavigation() {
+  const { theme, toggleTheme, isDark } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  const [isOnHero, setIsOnHero] = useState(true);
 
   // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Check if we're on the hero section
+      const heroSection = document.querySelector('section');
+      if (heroSection) {
+        const heroRect = heroSection.getBoundingClientRect();
+        setIsOnHero(heroRect.bottom > 0);
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -90,16 +101,18 @@ export default function MinimalNavigation() {
   };
 
   return (
-    <motion.nav
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 shadow-sm'
-          : 'bg-white/80 backdrop-blur-sm'
-      }`}
-    >
+    <>
+      {isOnHero && <HangingLightBulb />}
+      <motion.nav
+        initial={{ y: -20, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, ease: 'easeOut' }}
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-b border-gray-100 dark:border-gray-800 shadow-sm'
+            : 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm'
+        }`}
+      >
       <div className="max-w-6xl mx-auto px-8">
         <div className="flex items-center justify-between h-14">
           {/* Logo */}
@@ -110,7 +123,7 @@ export default function MinimalNavigation() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-lg font-medium text-gray-900 hover:text-gray-600 transition-colors"
+              className="text-lg font-medium text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -122,9 +135,9 @@ export default function MinimalNavigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-50 px-3 py-1.5 rounded-full"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full"
             >
-              <Clock size={12} className="text-gray-400" />
+              <Clock size={12} className="text-gray-400 dark:text-gray-400" />
               <span>{currentTime}</span>
             </motion.div>
           </div>
@@ -142,15 +155,15 @@ export default function MinimalNavigation() {
                   onClick={() => handleNavClick(item.href)}
                   className={`relative text-sm font-medium transition-colors ${
                     isActive
-                      ? 'text-gray-900'
-                      : 'text-gray-600 hover:text-gray-900'
+                      ? 'text-gray-900 dark:text-white'
+                      : 'text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white'
                   }`}
                 >
                   {item.name}
                   {isActive && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute -bottom-1 left-0 right-0 h-px bg-gray-900"
+                      className="absolute -bottom-1 left-0 right-0 h-px bg-gray-900 dark:bg-white"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
@@ -161,23 +174,29 @@ export default function MinimalNavigation() {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Mobile Time Display */}
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="sm:hidden flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-50 px-3 py-1.5 rounded-full"
-            >
-              <Clock size={12} className="text-gray-400" />
-              <span>{currentTime}</span>
-            </motion.div>
+            {/* Theme Toggle Button - only show when scrolled */}
+            {isScrolled && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={toggleTheme}
+                className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun size={16} /> : <Moon size={16} />}
+              </motion.button>
+            )}
             
             <motion.a
               href="mailto:nb3964@nyu.edu"
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="px-4 py-2 text-sm font-medium text-gray-700 border border-gray-300 hover:border-gray-900 hover:text-gray-900 transition-colors"
+              className="px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:border-gray-900 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
               whileHover={{ y: -1 }}
               whileTap={{ y: 0 }}
             >
@@ -192,18 +211,35 @@ export default function MinimalNavigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-1.5 text-xs font-medium text-gray-500 bg-gray-50 px-2.5 py-1 rounded-full"
+              className="flex items-center gap-1.5 text-xs font-medium text-gray-500 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 px-2.5 py-1 rounded-full"
             >
-              <Clock size={10} className="text-gray-400" />
+              <Clock size={10} className="text-gray-400 dark:text-gray-400" />
               <span>{currentTime}</span>
             </motion.div>
+            
+            {/* Mobile Theme Toggle - only show when scrolled */}
+            {isScrolled && (
+              <motion.button
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.8 }}
+                transition={{ duration: 0.3 }}
+                onClick={toggleTheme}
+                className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Toggle theme"
+              >
+                {isDark ? <Sun size={16} /> : <Moon size={16} />}
+              </motion.button>
+            )}
             
             <motion.button
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
+              className="p-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
@@ -218,7 +254,7 @@ export default function MinimalNavigation() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="md:hidden border-t border-gray-100 bg-white"
+            className="md:hidden border-t border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900"
           >
             <div className="px-4 py-6 space-y-4">
               {navItems.map((item, index) => (
@@ -228,7 +264,7 @@ export default function MinimalNavigation() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.05 }}
                   onClick={() => handleNavClick(item.href)}
-                  className="block w-full text-left text-gray-700 hover:text-gray-900 transition-colors py-2 text-sm font-medium"
+                  className="block w-full text-left text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors py-2 text-sm font-medium"
                 >
                   {item.name}
                 </motion.button>
@@ -238,7 +274,7 @@ export default function MinimalNavigation() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.3, delay: navItems.length * 0.05 }}
-                className="pt-4 border-t border-gray-100"
+                className="pt-4 border-t border-gray-100 dark:border-gray-800"
               >
                 <a
                   href="mailto:nb3964@nyu.edu"
@@ -253,5 +289,6 @@ export default function MinimalNavigation() {
         )}
       </div>
     </motion.nav>
+    </>
   );
 }

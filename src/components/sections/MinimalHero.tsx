@@ -51,7 +51,7 @@ export default function MinimalHero() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 md:px-8 bg-white relative overflow-hidden">
+    <section className="min-h-screen flex items-center justify-center px-4 md:px-8 bg-white dark:bg-gray-900 relative overflow-hidden transition-colors duration-500">
       {/* JavaScript code snippet with animation - hidden on mobile */}
       <motion.div 
         className="absolute top-20 left-20 -rotate-6 opacity-80 hidden md:block"
@@ -67,10 +67,10 @@ export default function MinimalHero() {
           ease: "easeInOut"
         }}
       >
-        <div className="bg-white border border-gray-200 rounded-lg p-4 shadow-lg max-w-xs">
+        <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 shadow-lg max-w-xs">
           <div className="flex items-center mb-2">
             <div className="h-3 w-3 rounded-full mr-2 bg-yellow-500"></div>
-            <span className="text-xs font-medium text-gray-500">JavaScript</span>
+            <span className="text-xs font-medium text-gray-500 dark:text-gray-400">JavaScript</span>
           </div>
           <pre className="text-xs overflow-hidden">
             <code className="font-mono text-yellow-500">
@@ -99,7 +99,7 @@ export default function MinimalHero() {
         <motion.div variants={fadeIn} className="mb-4 md:mb-8">
           <DisplayText 
             weight="light" 
-            className="text-gray-900 mb-4 elegant-name text-3xl md:text-4xl lg:text-6xl"
+            className="text-gray-900 dark:text-white mb-4 elegant-name text-3xl md:text-4xl lg:text-6xl"
             as="h1"
             gradient={false}
           >
@@ -112,7 +112,7 @@ export default function MinimalHero() {
           <Heading 
             level={2} 
             weight="normal" 
-            className="text-gray-600 text-xl md:text-2xl lg:text-3xl"
+            className="text-gray-600 dark:text-gray-300 text-xl md:text-2xl lg:text-3xl"
           >
             AI Innovator & Software Engineer
           </Heading>
@@ -120,7 +120,7 @@ export default function MinimalHero() {
 
         {/* Description */}
         <motion.div variants={fadeIn} className="mb-10 md:mb-12">
-          <p className="text-base md:text-lg lg:text-xl text-gray-700 font-light leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 font-light leading-relaxed max-w-3xl mx-auto">
             Building intelligent systems that drive business impact. Currently leading AI development 
             at Chewy while pursuing advanced studies at NYU.
           </p>
@@ -139,10 +139,10 @@ export default function MinimalHero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 + (index * 0.1) }}
             >
-              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 mb-1 md:mb-2">
+              <div className="text-2xl md:text-3xl lg:text-4xl font-light text-gray-900 dark:text-white mb-1 md:mb-2">
                 {metric.value}
               </div>
-              <div className="text-xs md:text-sm text-gray-600 font-medium">
+              <div className="text-xs md:text-sm text-gray-600 dark:text-gray-400 font-medium">
                 {metric.label}
               </div>
             </motion.div>
@@ -154,12 +154,12 @@ export default function MinimalHero() {
           variants={fadeIn}
           className="mb-10 md:mb-12"
         >
-          <div className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4 px-4 md:px-6 py-2 md:py-3 bg-white border border-gray-200 rounded-full shadow-sm">
-            <MonoText className="text-gray-600 text-xs md:text-sm">
+          <div className="inline-flex flex-col md:flex-row items-center gap-2 md:gap-4 px-4 md:px-6 py-2 md:py-3 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-full shadow-sm">
+            <MonoText className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
               {currentStatus.education}
             </MonoText>
-            <span className="hidden md:inline text-gray-300">•</span>
-            <span className="text-gray-600 text-xs md:text-sm">
+            <span className="hidden md:inline text-gray-300 dark:text-gray-500">•</span>
+            <span className="text-gray-600 dark:text-gray-300 text-xs md:text-sm">
               Expected {currentStatus.expected}
             </span>
           </div>
@@ -181,7 +181,7 @@ export default function MinimalHero() {
           
           <motion.a
             href="mailto:nb3964@nyu.edu"
-            className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 bg-white border border-gray-300 text-gray-700 hover:border-gray-900 hover:text-gray-900 transition-colors shadow-sm text-sm md:text-base"
+            className="w-full sm:w-auto px-6 md:px-8 py-2.5 md:py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-gray-900 dark:hover:border-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors shadow-sm text-sm md:text-base"
             whileHover={{ y: -2, boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)" }}
             whileTap={{ y: 0 }}
           >
@@ -202,7 +202,7 @@ export default function MinimalHero() {
             animate={{ y: [0, -4, 0] }}
             transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
           >
-            <span className="text-xs font-medium uppercase tracking-wider">
+            <span className="text-xs font-medium uppercase tracking-wider text-gray-400 dark:text-gray-500">
               Scroll
             </span>
             <ArrowDown size={14} className="md:w-4 md:h-4" />

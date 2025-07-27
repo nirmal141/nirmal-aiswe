@@ -45,7 +45,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white border-t border-gray-200">
+    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-y-10 gap-x-8 mb-12">
@@ -57,10 +57,10 @@ export default function Footer() {
               transition={{ duration: 0.6, ease: 'easeOut' }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-light text-gray-900 mb-4">
+              <h3 className="text-2xl font-light text-gray-900 dark:text-white mb-4">
                 Nirmal Boghara
               </h3>
-              <p className="text-gray-600 font-light leading-relaxed max-w-md mb-6">
+              <p className="text-gray-600 dark:text-gray-300 font-light leading-relaxed max-w-md mb-6">
                 AI Innovator and Software Engineer building intelligent solutions 
                 at the intersection of technology and human creativity.
               </p>
@@ -113,7 +113,7 @@ export default function Footer() {
                   <Link
                     key={link.name}
                     href={link.href}
-                    className="block text-gray-600 hover:text-gray-900 transition-colors text-sm hover:translate-x-0.5 transform duration-200"
+                    className="block text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-sm hover:translate-x-0.5 transform duration-200"
                   >
                     {link.name}
                   </Link>
@@ -136,7 +136,7 @@ export default function Footer() {
                   <div className="text-gray-500 mb-1.5 font-medium">Email</div>
                   <a 
                     href="mailto:nb3964@nyu.edu"
-                    className="text-gray-800 hover:text-gray-600 transition-colors"
+                    className="text-gray-800 dark:text-gray-200 hover:text-gray-600 dark:hover:text-gray-400 transition-colors"
                   >
                     nb3964@nyu.edu
                   </a>
@@ -144,12 +144,12 @@ export default function Footer() {
                 
                 <div>
                   <div className="text-gray-500 mb-1.5 font-medium">Location</div>
-                  <div className="text-gray-800">New York, NY</div>
+                  <div className="text-gray-800 dark:text-gray-200">New York, NY</div>
                 </div>
                 
                 <div>
                   <div className="text-gray-500 mb-1.5 font-medium">Response Time</div>
-                  <div className="text-gray-800">{'< 24 hours'}</div>
+                  <div className="text-gray-800 dark:text-gray-200">{'< 24 hours'}</div>
                 </div>
               </div>
             </motion.div>
