@@ -19,9 +19,9 @@ export default function HangingLightBulb() {
   };
 
   return (
-    <div className="fixed top-0 right-8 z-50 pointer-events-none">
-      {/* Ceiling mount */}
-      <div className="relative">
+    <div className="fixed top-0 right-8 z-50 pointer-events-none hidden lg:block">
+      {/* Ceiling mount - hidden on mobile */}
+      <div className="relative hidden lg:block">
         {/* Ceiling plate */}
         <div className="w-8 h-2 bg-gray-400 dark:bg-gray-500 rounded-full mx-auto mb-2 shadow-md" />
         
@@ -75,9 +75,9 @@ export default function HangingLightBulb() {
         )}
       </motion.div>
 
-      {/* Ambient light effect */}
+      {/* Ambient light effect - hidden on mobile */}
       <motion.div
-        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-full pointer-events-none"
+        className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-32 rounded-full pointer-events-none hidden lg:block"
         style={{
           background: isDark 
             ? 'radial-gradient(circle, rgba(255, 255, 0, 0.15) 0%, transparent 70%)'
