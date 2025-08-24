@@ -121,8 +121,7 @@ export default function MinimalHero() {
         {/* Description */}
         <motion.div variants={fadeIn} className="mb-10 md:mb-12">
           <p className="text-base md:text-lg lg:text-xl text-gray-700 dark:text-gray-300 font-light leading-relaxed max-w-3xl mx-auto">
-            Building intelligent systems that drive business impact. Currently leading AI development 
-            at Chewy while pursuing advanced studies at NYU.
+          “Merging code, creativity, and business to redefine what’s possible with AI.”
           </p>
         </motion.div>
 

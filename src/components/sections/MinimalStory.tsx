@@ -9,60 +9,27 @@ import { DisplayText, Heading, MonoText, Caption } from '../ui/TypographyElement
 import Image from 'next/image'; 
 
 const milestones = [  
-    {
-        id: 'goldenmace',
-        year: 'May 2022 - July 2022',
-        title: 'Full Stack Developer',
-        company: 'Goldenmace',
-        location: 'Mumbai, India',
-        description: 'Architected a high-performance full-stack dashboard with TypeScript and Svelte, delivering 30% faster load times and 20% higher client satisfaction through advanced caching mechanisms and seamless UI/UX design across MongoDB and PostgreSQL data layers.',
-        achievement: 'Improving client satisfaction and load times',
-        type: 'experience',
-        website: 'https://goldenmace.com'
-    },
-    {
-        id: 'feat-systems',
-        year: 'May 2023 - August 2023',
-        title: 'SDE Intern',
-        company: 'Feat Systems',
-        location: 'Mumbai, India',
-        description: 'Transformed Java/Spring Boot applications using Agile practices and MySQL optimization, reducing customer complaints by 15% while accelerating new team member onboarding by 30% through streamlined CI/CD pipelines, comprehensive SDLC documentation, and seamless GitHub/Jira integration.',
-        achievement: 'Reducing customer complaints and accelerating new team member onboarding',
-        type: 'experience',
-        website: 'https://www.featsystems.com'
-    },
-    {
-        id: 'soulible-digital',
-        year: 'September 2023 - November 2023',
-        title: 'Artificial Intelligence Intern',
-        company: 'Soulible Digital',
-        location: 'Mumbai, India',
-        description: 'Engineered an AI-powered computer vision attendance system using YOLOv7 and TensorFlow, automating tracking for 200+ employees while reducing manual effort by 50% and boosting operational efficiency by 30% through cross-functional collaboration and Python-based optimization.   ',
-        achievement: 'Reducing manual effort and boosting operational efficiency',
-        type: 'experience',
-        website: 'https://soulible.com'
-    },
-    {
-    id: 'education',
-    year: 'July 2020 - June 2024',
-    title: 'Computer Engineering Graduate',
-    company: 'University of Mumbai',
-    location: 'Mumbai, India',
-    description: 'Graduated with expertise in AI, machine learning, and advanced algorithms. Built foundation for future innovations.',
-    achievement: 'BE Computer Engineering',
-    type: 'education',
-    website: 'https://mum.digitaluniversity.ac/'
+  {
+    id: 'hacknyu',
+    year: 'June 2025 - Present',
+    title: 'Technical Project Manager',
+    company: 'HackNYU',
+    location: 'New York, NY',
+    description: 'Responsible for managing the technical aspects of the hackathon.',
+    achievement: 'Leadership and Teamwork',
+    type: 'experience',
+    website: 'https://hacknyu.org'
   },
   {
-    id: 'bitnine',
-    year: 'April 2024 - June 2024',
-    title: 'Software Engineering Intern',
-    company: 'Bitnine',
-    location: 'San Francisco, CA (Remote)',
-    description: 'Optimized PostgreSQL databases with Oracle compatibility, improving query performance by 23% for enterprise applications.',
-    achievement: '23% Performance Improvement',
-    type: 'experience',
-    website: 'https://bitnineglobal.com'
+    id: 'perplexity',
+    year: 'August 2025 - Present',
+    title: 'Campus Partner',
+    company: 'Perplexity',
+    location: 'New York, NY',
+    description: 'Building a community of AI enthusiasts and driving the adoption of Comet Browser at NYU.',
+    achievement: 'Building a community of AI enthusiasts',
+    type: 'education',
+    website: 'https://www.perplexity.ai'
   },
   {
     id: 'qualcomm',
@@ -121,29 +88,8 @@ const milestones = [
     ]
   },
   {
-    id: 'startup',
-    year: 'January 2025 - July 2025',
-    title: 'Chief Technology Officer',
-    company: 'Failed Startup',
-    location: 'New York, NY',
-    description: 'Revolutionizing tourism with AI',
-    achievement: 'Learned a lot and this gave me a founders mindset',
-    type: 'experience',
-  },
-  {
-    id: 'perplexity',
-    year: 'March 2025 - Present',
-    title: 'AI Business Fellow',
-    company: 'Perplexity',
-    location: 'New York, NY (Online)',
-    description: 'Diving deep into the world of AI with the industry leaders around the globe.',
-    achievement: 'Learning from AI leaders',
-    type: 'education',
-    website: 'https://www.perplexity.ai'
-  },
-  {
     id: 'chewy',
-    year: 'May 2025 - Present',
+    year: 'May 2025 - August 2025',
     title: 'AI Innovator Intern II',
     company: 'Chewy',
     location: 'Boston, MA',
@@ -153,15 +99,26 @@ const milestones = [
     website: 'https://www.chewy.com'
   },
   {
-    id: 'hacknyu',
-    year: 'June 2025 - Present',
-    title: 'Tech Team Member',
-    company: 'HackNYU',
+    id: 'perplexity',
+    year: 'March 2025 - August 2025',
+    title: 'AI Business Fellow',
+    company: 'Perplexity',
+    location: 'New York, NY (Online)',
+    description: 'Diving deep into the world of AI with the industry leaders around the globe.',
+    achievement: 'Learning from AI leaders',
+    type: 'education',
+    website: 'https://www.perplexity.ai'
+  },
+  
+  {
+    id: 'startup',
+    year: 'January 2025 - July 2025',
+    title: 'Chief Technology Officer',
+    company: 'Failed Startup',
     location: 'New York, NY',
-    description: 'Responsible for managing the technical aspects of the hackathon.',
-    achievement: 'Leadership and Teamwork',
+    description: 'Revolutionizing tourism with AI',
+    achievement: 'Learned a lot and this gave me a founders mindset',
     type: 'experience',
-    website: 'https://hacknyu.org'
   },
   {
     id: 'nyu',
@@ -173,6 +130,61 @@ const milestones = [
     achievement: 'Expected Graduation: May 2026',
     type: 'education',
     website: 'https://www.nyu.edu'
+  },
+  {
+    id: 'bitnine',
+    year: 'April 2024 - June 2024',
+    title: 'Software Engineering Intern',
+    company: 'Bitnine',
+    location: 'San Francisco, CA (Remote)',
+    description: 'Optimized PostgreSQL databases with Oracle compatibility, improving query performance by 23% for enterprise applications.',
+    achievement: '23% Performance Improvement',
+    type: 'experience',
+    website: 'https://bitnineglobal.com'
+  },
+  {
+    id: 'soulible-digital',
+    year: 'September 2023 - November 2023',
+    title: 'Artificial Intelligence Intern',
+    company: 'Soulible Digital',
+    location: 'Mumbai, India',
+    description: 'Engineered an AI-powered computer vision attendance system using YOLOv7 and TensorFlow, automating tracking for 200+ employees while reducing manual effort by 50% and boosting operational efficiency by 30% through cross-functional collaboration and Python-based optimization.   ',
+    achievement: 'Reducing manual effort and boosting operational efficiency',
+    type: 'experience',
+    website: 'https://soulible.com'
+  },
+  {
+    id: 'feat-systems',
+    year: 'May 2023 - August 2023',
+    title: 'SDE Intern',
+    company: 'Feat Systems',
+    location: 'Mumbai, India',
+    description: 'Transformed Java/Spring Boot applications using Agile practices and MySQL optimization, reducing customer complaints by 15% while accelerating new team member onboarding by 30% through streamlined CI/CD pipelines, comprehensive SDLC documentation, and seamless GitHub/Jira integration.',
+    achievement: 'Reducing customer complaints and accelerating new team member onboarding',
+    type: 'experience',
+    website: 'https://www.featsystems.com'
+  },
+  {
+    id: 'goldenmace',
+    year: 'May 2022 - July 2022',
+    title: 'Full Stack Developer',
+    company: 'Goldenmace',
+    location: 'Mumbai, India',
+    description: 'Architected a high-performance full-stack dashboard with TypeScript and Svelte, delivering 30% faster load times and 20% higher client satisfaction through advanced caching mechanisms and seamless UI/UX design across MongoDB and PostgreSQL data layers.',
+    achievement: 'Improving client satisfaction and load times',
+    type: 'experience',
+    website: 'https://goldenmace.com'
+  },
+  {
+    id: 'education',
+    year: 'July 2020 - June 2024',
+    title: 'Computer Engineering Graduate',
+    company: 'University of Mumbai',
+    location: 'Mumbai, India',
+    description: 'Graduated with expertise in AI, machine learning, and advanced algorithms. Built foundation for future innovations.',
+    achievement: 'BE Computer Engineering',
+    type: 'education',
+    website: 'https://mum.digitaluniversity.ac/'
   }
 ];
 
