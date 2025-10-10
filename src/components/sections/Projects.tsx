@@ -10,6 +10,21 @@ import Link from 'next/link';
 
 const projects = [
     {
+        title: 'PyroGuard AI',
+        subtitle: 'Multi-Agent RL System for Wildfire Suppression',
+        year: '2025',
+        description: 'Deployed an autonomous wildfire suppression system with multi-agent RL (Dueling DQN) drone swarms. Engineered a multi-objective reward system balancing suppression, efficiency, and safety, achieving 85% mission success and 2.4x more fires extinguished vs. rule-based drones. Awarded Best Presentation at the Qualcomm Snapdragon Multiverse Hackathon at Princeton.',
+        tech: ['PyTorch', 'DQN', 'CNN', 'Gymnasium', 'Reinforcement Learning', 'Multi-Agent Systems'],
+        metrics: [
+          { label: 'Mission Success', value: '85%' },
+          { label: 'Performance Gain', value: '2.4x' },
+          { label: 'Award', value: 'Best Presentation' }
+        ],
+        status: 'Hackathon Winner',
+        link: 'https://github.com/nirmal141/PyroguardAI',
+        featured: true
+      },
+    {
         title: 'TutorAI',
         subtitle: 'Offline AI Teaching Assistant for rural students and teachers.',
         year: '2025',

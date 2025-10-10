@@ -21,17 +21,6 @@ const milestones = [
     website: 'https://hacknyu.org'
   },
   {
-    id: 'perplexity',
-    year: 'August 2025 - Present',
-    title: 'Campus Partner',
-    company: 'Perplexity',
-    location: 'New York, NY',
-    description: 'Building a community of AI enthusiasts and driving the adoption of Comet Browser at NYU.',
-    achievement: 'Building a community of AI enthusiasts',
-    type: 'education',
-    website: 'https://www.perplexity.ai'
-  },
-  {
     id: 'qualcomm',
     year: 'February 2025 - Present',
     title: 'Technical Ambassador',
@@ -51,8 +40,15 @@ const milestones = [
         linkText: 'Blog',
       },
       {
+        title: 'Mentor - Qualcomm Edge AI Hackathon Finale - NYU',
+        period: 'September 2025',
+        description: 'Was invited to mentor students in building AI-powered solutions using Snapdragon® X at NYU',
+        achievement: 'Leadership',
+        
+      },
+      {
         title: 'Mentor - Edge AI Hackathon',
-        period: 'May 2025 - August 2025',
+        period: 'March 2025',
         description: 'Was invited to mentor students in building AI-powered solutions using Snapdragon® X at Northeastern University in Seattle.',
         achievement: 'Leadership',
         linkText: 'Hackathon',

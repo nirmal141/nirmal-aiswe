@@ -20,16 +20,36 @@ export default function MinimalNavigation() {
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentTime, setCurrentTime] = useState('');
+  // Track if navbar is over dark section for dynamic text color switching
+  // When over hero (black bg): white text | When over story in light mode: black text
+  const [isOverDarkSection, setIsOverDarkSection] = useState(true);
 
-  // Handle scroll detection
+  // Handle scroll detection and section background detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
+      
+      // Detect if navbar is over hero section (black background)
+      const heroSection = document.querySelector('section'); // First section is hero
+      if (heroSection) {
+        const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+        const scrollPosition = window.scrollY;
+        
+        // If we're in the hero section, use white text
+        // If we've scrolled past hero and in light mode, use dark text
+        if (scrollPosition < heroBottom - 100) {
+          setIsOverDarkSection(true);
+        } else {
+          // Check if we're in light mode - if so, use dark text for contrast
+          setIsOverDarkSection(isDark);
+        }
+      }
     };
 
     window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Call once on mount
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isDark]);
 
   // Handle active section detection
   useEffect(() => {
@@ -128,7 +148,8 @@ export default function MinimalNavigation() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="text-base sm:text-lg font-semibold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-white dark:to-gray-300 bg-clip-text text-transparent hover:from-gray-700 hover:to-gray-500 dark:hover:from-gray-200 dark:hover:to-gray-100 transition-all duration-300"
+              className="text-base sm:text-lg font-semibold transition-all duration-300"
+              style={{ color: isOverDarkSection ? '#ffffff' : '#171717' }}
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.98 }}
             >
@@ -140,7 +161,8 @@ export default function MinimalNavigation() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-              className="hidden sm:flex items-center gap-2 text-xs font-medium text-gray-700 dark:text-gray-200 bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 px-3 py-2 rounded-full shadow-lg"
+              className="hidden sm:flex items-center gap-2 text-xs font-medium bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 px-3 py-2 rounded-full shadow-lg"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
               whileHover={{ 
                 scale: 1.05,
                 backgroundColor: 'rgba(255,255,255,0.3)',
@@ -152,7 +174,7 @@ export default function MinimalNavigation() {
                 animate={{ rotate: 360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
               >
-                <Clock size={12} className="text-gray-600 dark:text-gray-300" />
+                <Clock size={12} style={{ color: isOverDarkSection ? '#9ca3af' : '#9ca3af' }} />
               </motion.div>
               <span className="font-mono">{currentTime}</span>
             </motion.div>
@@ -171,9 +193,14 @@ export default function MinimalNavigation() {
                   onClick={() => handleNavClick(item.href)}
                   className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-xl ${
                     isActive
-                      ? 'text-gray-900 dark:text-white bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 shadow-lg'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-white/20 dark:hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/30 dark:hover:border-white/10 hover:shadow-md'
+                      ? 'bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 shadow-lg'
+                      : 'hover:bg-white/20 dark:hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/30 dark:hover:border-white/10 hover:shadow-md'
                   }`}
+                  style={{ 
+                    color: isActive 
+                      ? (isOverDarkSection ? '#ffffff' : '#171717')
+                      : (isOverDarkSection ? '#d1d5db' : '#6b7280')
+                  }}
                   whileHover={{ 
                     scale: 1.05, 
                     y: -2,
@@ -202,7 +229,8 @@ export default function MinimalNavigation() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
               onClick={toggleTheme}
-              className="p-3 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 shadow-lg hover:shadow-xl"
+              className="p-3 transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 hover:border-white/40 dark:hover:border-white/20 shadow-lg hover:shadow-xl"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
               whileHover={{ 
                 scale: 1.1, 
                 y: -2,
@@ -227,7 +255,8 @@ export default function MinimalNavigation() {
               initial={{ opacity: 0, x: 10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="px-5 py-2.5 text-sm font-medium text-gray-800 dark:text-gray-200 bg-white/25 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 hover:bg-white/35 dark:hover:bg-white/15 hover:border-white/50 dark:hover:border-white/30 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl"
+              className="px-5 py-2.5 text-sm font-medium bg-white/25 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 hover:bg-white/35 dark:hover:bg-white/15 hover:border-white/50 dark:hover:border-white/30 transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
               whileHover={{ 
                 y: -3, 
                 scale: 1.02,
@@ -246,13 +275,14 @@ export default function MinimalNavigation() {
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center gap-1.5 text-xs font-medium text-gray-700 dark:text-gray-200 bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 px-2.5 py-1.5 rounded-full shadow-lg"
+              className="flex items-center gap-1.5 text-xs font-medium bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 px-2.5 py-1.5 rounded-full shadow-lg"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
             >
               <motion.div
                 animate={{ rotate: 360 }}
                 transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
               >
-                <Clock size={10} className="text-gray-600 dark:text-gray-300" />
+                <Clock size={10} style={{ color: isOverDarkSection ? '#9ca3af' : '#9ca3af' }} />
               </motion.div>
               <span className="font-mono">{currentTime}</span>
             </motion.div>
@@ -263,7 +293,8 @@ export default function MinimalNavigation() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3 }}
               onClick={toggleTheme}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 shadow-lg"
+              className="p-2 transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 shadow-lg"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
               whileHover={{ scale: 1.1, y: -1 }}
               whileTap={{ scale: 0.9 }}
               aria-label="Toggle theme"
@@ -283,7 +314,8 @@ export default function MinimalNavigation() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.6 }}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 shadow-lg"
+              className="p-2 transition-all duration-300 rounded-full bg-white/20 dark:bg-black/20 backdrop-blur-md border border-white/30 dark:border-white/10 hover:bg-white/30 dark:hover:bg-white/10 shadow-lg"
+              style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
               whileHover={{ scale: 1.05, y: -1 }}
               whileTap={{ scale: 0.95 }}
               aria-label="Toggle menu"
@@ -319,9 +351,14 @@ export default function MinimalNavigation() {
                     onClick={() => handleNavClick(item.href)}
                     className={`block w-full text-left px-4 py-3 text-sm font-medium transition-all duration-300 rounded-xl ${
                       isActive
-                        ? 'text-gray-900 dark:text-white bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 shadow-lg'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-white/20 dark:hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/30 dark:hover:border-white/10'
+                        ? 'bg-white/30 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 shadow-lg'
+                        : 'hover:bg-white/20 dark:hover:bg-white/5 hover:backdrop-blur-md hover:border hover:border-white/30 dark:hover:border-white/10'
                     }`}
+                    style={{ 
+                      color: isActive 
+                        ? (isOverDarkSection ? '#ffffff' : '#171717')
+                        : (isOverDarkSection ? '#d1d5db' : '#6b7280')
+                    }}
                     whileHover={{ 
                       scale: 1.02, 
                       x: 4,
@@ -342,7 +379,8 @@ export default function MinimalNavigation() {
               >
                 <motion.a
                   href="mailto:nb3964@nyu.edu"
-                  className="block w-full px-5 py-3 bg-white/25 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 text-gray-800 dark:text-gray-200 text-center text-sm font-medium transition-all duration-300 rounded-xl shadow-lg hover:bg-white/35 dark:hover:bg-white/15 hover:shadow-xl"
+                  className="block w-full px-5 py-3 bg-white/25 dark:bg-white/10 backdrop-blur-md border border-white/40 dark:border-white/20 text-center text-sm font-medium transition-all duration-300 rounded-xl shadow-lg hover:bg-white/35 dark:hover:bg-white/15 hover:shadow-xl"
+                  style={{ color: isOverDarkSection ? '#d1d5db' : '#6b7280' }}
                   onClick={() => setIsMobileMenuOpen(false)}
                   whileHover={{ 
                     scale: 1.02,
