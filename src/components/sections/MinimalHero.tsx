@@ -6,8 +6,8 @@
 import { useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import Image from 'next/image';
+import { ShaderAnimation } from '../ui/shader-animation';
 import { ArrowDown } from 'lucide-react';
-import FireCursor from '../ui/FireCursor';
 
 const currentStatus = {
   availability: 'Available for FTE opportunities',
@@ -53,9 +53,11 @@ export default function MinimalHero() {
 
   return (
     <section className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 bg-black relative overflow-hidden">
-      {/* Fire cursor effect - only in hero section */}
-      <FireCursor />
-      
+      {/* Shader Animation Background */}
+      <div className="absolute inset-0 z-0 opacity-50">
+        <ShaderAnimation />
+      </div>
+
       {/* Main content container - Two column layout */}
       <div className="max-w-7xl mx-auto w-full relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20">

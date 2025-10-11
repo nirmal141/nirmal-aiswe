@@ -575,7 +575,7 @@ const WorkLifeBalance = () => {
               ></motion.div>
               
               {/* Labels - positioned above and below the line to avoid overlap */}
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-y-8">
+              <div className="absolute left-0 top-1/2 -translate-y-10">
                 <motion.div 
                   className="font-medium text-gray-600 dark:text-gray-400 text-sm"
                   initial={{ opacity: 0 }}
@@ -587,7 +587,7 @@ const WorkLifeBalance = () => {
                 </motion.div>
               </div>
               
-              <div className="absolute right-0 top-1/2 -translate-y-1/2 -translate-y-8 text-right">
+              <div className="absolute right-0 top-1/2 -translate-y-10 text-right">
                 <motion.div 
                   className="font-medium text-gray-600 dark:text-gray-400 text-sm"
                   initial={{ opacity: 0 }}
