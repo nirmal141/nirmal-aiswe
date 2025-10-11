@@ -739,7 +739,7 @@ export default function MinimalStory() {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div id="story" ref={containerRef} className="bg-white dark:bg-gray-900 transition-colors duration-500">
       {/* Hero section */}
       <section className="py-32 px-8">
         <div className="max-w-4xl mx-auto text-center">
