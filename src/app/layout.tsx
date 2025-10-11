@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from '../lib/theme-context'
 import CustomCursor from '../components/ui/CustomCursor'
 import { SplashCursor } from '../components/ui/splash-cursor'
+import SmoothScroll from '../components/ui/SmoothScroll'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
+          <SmoothScroll />
           <CustomCursor />
           <SplashCursor 
   // SPLAT_RADIUS={0.05}        // Splash size (default: 0.2)
