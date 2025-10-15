@@ -6,7 +6,7 @@
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { ShaderAnimation } from '../ui/shader-animation';
+import { BackgroundPaths } from '../ui/background-paths';
 import { ArrowDown } from 'lucide-react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -97,9 +97,9 @@ export default function MinimalHero() {
       ref={heroRef}
       className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 bg-black relative overflow-hidden"
     >
-      {/* Shader Animation Background */}
-      <div ref={backgroundRef} className="absolute inset-0 z-0 opacity-50">
-        <ShaderAnimation />
+      {/* Background Paths Animation */}
+      <div ref={backgroundRef} className="absolute inset-0 z-0 opacity-40">
+        <BackgroundPaths />
       </div>
 
       {/* Main content container - Two column layout */}
