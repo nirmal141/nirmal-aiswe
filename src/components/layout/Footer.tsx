@@ -9,17 +9,17 @@ import Link from 'next/link';
 const socialLinks = [
   {
     name: 'GitHub',
-    href: 'https://github.com/nirmalboghara',
+    href: 'https://github.com/nirmal141',
     icon: Github
   },
   {
     name: 'LinkedIn',
-    href: 'https://linkedin.com/in/nirmalboghara',
+    href: 'https://linkedin.com/in/nirmal-boghara',
     icon: Linkedin
   },
   {
     name: 'Twitter',
-    href: 'https://twitter.com',
+    href: 'https://x.com/nirmalboghara',
     icon: Twitter
   },
   {
@@ -29,12 +29,12 @@ const socialLinks = [
   }
 ];
 
-// Updated to match actual page sections
+// Updated to match actual page routes
 const quickLinks = [
-  { name: 'Home', href: '#' },
-  { name: 'Story', href: '#story' },
-  { name: 'Projects', href: '#projects' },
-  { name: 'Contact', href: '#contact' }
+  { name: 'Home', href: '/' },
+  { name: 'Story', href: '/story' },
+  { name: 'Projects', href: '/projects' },
+  { name: 'Contact', href: '/contact' }
 ];
 
 export default function Footer() {
@@ -45,7 +45,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800 transition-colors duration-500">
+    <footer className="bg-transparent border-t border-white/10">
       <div className="max-w-7xl mx-auto px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-y-10 gap-x-8 mb-12">
@@ -71,7 +71,7 @@ export default function Footer() {
                   <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
                   <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75" style={{ animationDuration: '2s' }}></div>
                 </div>
-                <Caption className="text-green-700 font-medium">
+                <Caption className="text-green-400 font-medium">
                   Available for new projects
                 </Caption>
               </div>
@@ -88,7 +88,7 @@ export default function Footer() {
                       rel="noopener noreferrer"
                       whileHover={{ y: -3, scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
-                      className="p-2.5 text-gray-500 hover:text-gray-900 transition-colors rounded-full hover:bg-gray-50"
+                      className="p-2.5 text-gray-400 hover:text-white transition-colors rounded-full hover:bg-white/10"
                       aria-label={link.name}
                     >
                       <IconComponent size={18} strokeWidth={2} />
@@ -162,7 +162,7 @@ export default function Footer() {
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, ease: 'easeOut', delay: 0.3 }}
           viewport={{ once: true }}
-          className="pt-8 border-t border-gray-100"
+          className="pt-8 border-t border-white/10"
         >
           <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
             {/* Copyright */}
@@ -178,7 +178,7 @@ export default function Footer() {
               onClick={scrollToTop}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 text-gray-500 hover:text-gray-900 transition-colors group px-3 py-1.5 rounded-md hover:bg-gray-50"
+              className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors group px-3 py-1.5 rounded-md hover:bg-white/10"
             >
               <span className="text-sm font-medium">Back to top</span>
               <ArrowUp 

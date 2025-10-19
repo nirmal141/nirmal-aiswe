@@ -57,7 +57,7 @@ const currentLocation = {
 
 export default function Contact() {
   return (
-    <section id="contact" className="py-32 px-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+    <section id="contact" className="py-32 px-8 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -119,7 +119,7 @@ export default function Contact() {
                     >
                       <CardContent className="p-6">
                         <div className="flex items-start justify-between mb-4">
-                          <div className="p-2 bg-gray-50 dark:bg-gray-700 rounded-lg group-hover:bg-gray-100 dark:group-hover:bg-gray-600 transition-colors">
+                          <div className="p-2 bg-black/30 backdrop-blur-sm rounded-lg group-hover:bg-black/50 transition-colors">
                             <IconComponent size={20} className="text-gray-700 dark:text-gray-300" />
                           </div>
                           <ArrowUpRight 
@@ -142,7 +142,7 @@ export default function Contact() {
               </div>
 
               {/* Availability Status */}
-              <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg">
                 <div className="flex items-center justify-between mb-4">
                   <Caption className="text-gray-600 dark:text-gray-400">Current Availability</Caption>
                   <div className="flex items-center gap-2">
@@ -197,7 +197,7 @@ export default function Contact() {
                       whileInView={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.05 * index }}
                       viewport={{ once: true }}
-                      className="flex items-center gap-3 p-3 bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 rounded-lg hover:border-gray-200 dark:hover:border-gray-600 transition-colors"
+                      className="flex items-center gap-3 p-3 bg-black/30 backdrop-blur-sm border border-white/10 rounded-lg hover:border-white/30 transition-colors"
                     >
                       <div className="w-1.5 h-1.5 bg-gray-400 dark:bg-gray-500 rounded-full"></div>
                       <span className="text-gray-700 dark:text-gray-300 text-sm font-medium">
@@ -211,7 +211,7 @@ export default function Contact() {
               {/* Location & Preferences */}
               <div>
                 <Caption className="mb-4 text-gray-600 dark:text-gray-400">Location & Work Preferences</Caption>
-                <div className="space-y-4 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg">
+                <div className="space-y-4 p-4 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-600 dark:text-gray-400 text-sm">Current Location</span>
                     <div className="flex items-center gap-2">

@@ -1,17 +1,13 @@
-// ✨ MINIMAL HERO - Immersive Zoom Effect with Scroll
+// ✨ MINIMAL HERO - Clean Hero Section
 // src/components/sections/MinimalHero.tsx
 
 'use client';
 
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { BackgroundPaths } from '../ui/background-paths';
-import { ArrowDown } from 'lucide-react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-
-gsap.registerPlugin(ScrollTrigger);
+import AnimatedJourneyButton from '../ui/AnimatedJourneyButton';
+import Link from 'next/link';
 
 const currentStatus = {
   availability: 'Available for FTE opportunities',
@@ -28,77 +24,13 @@ const keyMetrics = [
 ];
 
 export default function MinimalHero() {
-  const heroRef = useRef<HTMLElement>(null);
-  const nameRef = useRef<HTMLHeadingElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const avatarRef = useRef<HTMLDivElement>(null);
-  const backgroundRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!heroRef.current || !nameRef.current || !contentRef.current || !avatarRef.current || !backgroundRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Create the immersive zoom timeline with longer pin for complete zoom
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: '+=200%', // Extended scroll distance for smoother zoom
-          scrub: 2, // Slower, smoother scrubbing
-          pin: true,
-          anticipatePin: 1,
-        }
-      });
-
-      // Stage 1: Zoom the name to fullscreen (0-40%)
-      tl.to(nameRef.current, {
-        scale: 10,
-        opacity: 0,
-        duration: 0.5,
-        ease: 'power1.inOut'
-      }, 0)
-      
-      // Fade out other content (NOT the avatar)
-      .to(contentRef.current, {
-        opacity: 0,
-        y: -80,
-        duration: 0.4,
-        ease: 'power1.inOut'
-      }, 0)
-      
-      // Stage 2: Fade out background (20-60%)
-      .to(backgroundRef.current, {
-        opacity: 0,
-        duration: 0.3,
-        ease: 'power1.inOut'
-      }, 0.2)
-      
-      // Stage 3: Complete blackout before next section (60-100%)
-      .to(heroRef.current, {
-        backgroundColor: 'rgba(0, 0, 0, 0)',
-        duration: 0.2,
-        ease: 'power1.inOut'
-      }, 0.5);
-
-    }, heroRef);
-
-    return () => ctx.revert();
-  }, []);
-
-  const scrollToNext = () => {
-    const nextSection = document.querySelector('#story');
-    if (nextSection) {
-      nextSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section 
-      ref={heroRef}
       className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 bg-black relative overflow-hidden"
     >
       {/* Background Paths Animation */}
-      <div ref={backgroundRef} className="absolute inset-0 z-0 opacity-40">
+      <div className="absolute inset-0 z-0 opacity-40">
         <BackgroundPaths />
       </div>
 
@@ -108,7 +40,6 @@ export default function MinimalHero() {
           
           {/* Left Column - Avatar */}
           <motion.div
-            ref={avatarRef}
             className="flex items-center justify-center order-1 lg:order-1"
             initial={{ opacity: 0, scale: 0.8, x: -100 }}
             animate={{ opacity: 1, scale: 1, x: 0 }}
@@ -144,19 +75,23 @@ export default function MinimalHero() {
 
           {/* Right Column - Content */}
           <div className="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-left">
-            {/* Name - This will zoom */}
-            <div className="mb-4 md:mb-6">
+            {/* Name */}
+            <motion.div 
+              className="mb-4 md:mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+            >
               <h1 
-                ref={nameRef}
                 className="elegant-name text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light" 
                 style={{ color: '#ffffff' }}
               >
                 Nirmal Boghara
               </h1>
-            </div>
+            </motion.div>
 
             {/* Rest of content */}
-            <div ref={contentRef}>
+            <div>
               {/* Title */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
@@ -165,7 +100,7 @@ export default function MinimalHero() {
                 className="mb-6 md:mb-8"
               >
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-normal" style={{ color: '#ffffff' }}>
-                  AI Innovator & Software Engineer \ <span className="text-orange-500">UI/UX Side Hustler</span>
+                  AI Innovator & Software Engineer \ <span style={{ color: '#fec195' }}>UI/UX Side Hustler</span>
                 </h2>
               </motion.div>
 
@@ -232,49 +167,30 @@ export default function MinimalHero() {
                 transition={{ duration: 0.8, delay: 1.2 }}
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
               >
-                <motion.button
-                  onClick={scrollToNext}
-                  className="cursor-button px-6 md:px-8 py-2.5 md:py-3 bg-orange-500 text-black hover:bg-gray-100 transition-colors text-sm md:text-base rounded-md font-medium"
-                  whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(255, 255, 255, 0.3)" }}
-                  whileTap={{ y: 0, scale: 0.98 }}
-                >
-                  View My Journey
-                </motion.button>
+                <Link href="/story">
+                  <motion.div
+                    whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(254, 193, 149, 0.3)" }}
+                    whileTap={{ y: 0, scale: 0.98 }}
+                  >
+                    <AnimatedJourneyButton>
+                      View My Journey
+                    </AnimatedJourneyButton>
+                  </motion.div>
+                </Link>
                 
-                <motion.a
-                  href="mailto:nb3964@nyu.edu"
-                  className="cursor-button px-6 md:px-8 py-2.5 md:py-3 bg-transparent border border-white/30 text-white hover:border-white/50 hover:bg-white/5 transition-colors text-sm md:text-base rounded-md font-medium"
-                  whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(255, 255, 255, 0.1)" }}
+                <motion.div
+                  whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(254, 193, 149, 0.3)" }}
                   whileTap={{ y: 0, scale: 0.98 }}
                 >
-                  Get in Touch
-                </motion.a>
+                  <AnimatedJourneyButton href="mailto:nb3964@nyu.edu">
+                    Get in Touch
+                  </AnimatedJourneyButton>
+                </motion.div>
               </motion.div>
             </div>
           </div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.6, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20"
-      >
-        <motion.button
-          onClick={scrollToNext}
-          className="flex flex-col items-center gap-1 md:gap-2 text-gray-500 hover:text-gray-300 transition-colors"
-          animate={{ y: [0, -4, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          whileHover={{ scale: 1.05 }}
-        >
-          <span className="text-xs font-medium uppercase tracking-wider">
-            Scroll
-          </span>
-          <ArrowDown size={14} className="md:w-4 md:h-4" />
-        </motion.button>
-      </motion.div>
     </section>
   );
 }

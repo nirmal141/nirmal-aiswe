@@ -112,7 +112,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-16 md:py-24 lg:py-32 px-4 md:px-8 bg-white dark:bg-gray-900 transition-colors duration-500">
+    <section id="projects" className="py-16 md:py-24 lg:py-32 px-4 md:px-8 transition-colors duration-500">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div

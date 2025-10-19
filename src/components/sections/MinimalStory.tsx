@@ -532,7 +532,7 @@ const WorkLifeBalance = () => {
     };
   
     return (
-      <section className="py-24 px-8 bg-gradient-to-b from-gray-50 dark:from-gray-800 to-white dark:to-gray-900 overflow-hidden">
+      <section className="py-24 px-8 overflow-hidden">
         <div className="max-w-5xl mx-auto">
           {/* Header */}
           <motion.div
@@ -739,7 +739,7 @@ export default function MinimalStory() {
   }, []);
 
   return (
-    <div id="story" ref={containerRef} className="bg-white dark:bg-gray-900 transition-colors duration-500">
+    <div id="story" ref={containerRef} className="transition-colors duration-500">
       {/* Hero section */}
       <section className="py-32 px-8">
         <div className="max-w-4xl mx-auto text-center">
@@ -833,7 +833,7 @@ export default function MinimalStory() {
       <WorkLifeBalance />
 
       {/* Current Status */}
-      <section className="py-20 px-8 bg-gray-50 dark:bg-gray-800 transition-colors duration-500">
+      <section className="py-20 px-8 transition-colors duration-500">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-6">
@@ -841,7 +841,7 @@ export default function MinimalStory() {
             </Heading>
             
                           <div className="grid md:grid-cols-2 gap-8 text-left">
-                <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
                     Currently
                   </h3>
@@ -854,7 +854,7 @@ export default function MinimalStory() {
                   </div>
                 </div>
 
-                <div className="p-6 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
                   <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
                     Looking For
                   </h3>
