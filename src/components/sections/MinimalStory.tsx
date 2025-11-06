@@ -10,6 +10,17 @@ import Image from 'next/image';
 
 const milestones = [  
   {
+    id: 'nyu-research',
+    year: 'Oct 2025 - Present',
+    title: 'Research Assistant',
+    company: 'NYU Center for Data Science',
+    location: 'New York, NY',
+    description: 'Researching on active learning / reinforcement learning techniques for improving the accuracy of landmine detection systems. Helping organizations plan their demining strategies based on the risk map.',
+    achievement: 'Research & Innovation',
+    type: 'experience',
+    website: 'https://cds.nyu.edu'
+  },
+  {
     id: 'hacknyu',
     year: 'June 2025 - Present',
     title: 'Technical Project Manager',
