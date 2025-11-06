@@ -16,12 +16,12 @@ const currentStatus = {
   expected: 'May 2026'
 };
 
-const keyMetrics = [
-  { value: '20,000+', label: 'Lines of Code (Quality over Quantity)' },
-  { value: '6', label: 'Internships' },
-  { value: '10+', label: 'Mentorships' },
-  { value: '3x', label: 'Hackathon Winner' }
-];
+// const keyMetrics = [
+//   { value: '20,000+', label: 'Lines of Code (Quality over Quantity)' },
+//   { value: '6', label: 'Internships' },
+//   { value: '10+', label: 'Mentorships' },
+//   { value: '3x', label: 'Hackathon Winner' }
+// ];
 
 export default function MinimalHero() {
 
@@ -123,7 +123,7 @@ export default function MinimalHero() {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="grid grid-cols-2 gap-4 mb-8 md:mb-10"
               >
-                {keyMetrics.map((metric, index) => (
+                {/* {keyMetrics.map((metric, index) => (
                   <motion.div
                     key={metric.label}
                     className="text-center lg:text-left"
@@ -139,7 +139,7 @@ export default function MinimalHero() {
                       {metric.label}
                     </div>
                   </motion.div>
-                ))}
+                ))} */}
               </motion.div>
 
               {/* Education status */}
