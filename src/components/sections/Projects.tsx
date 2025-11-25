@@ -9,6 +9,21 @@ import { cn } from '../../lib/utils';
 import Link from 'next/link';
 
 const projects = [
+  {
+    title: 'CodeRalph',
+    subtitle: 'real-time collaborative code editor',
+    year: '2025',
+    description: 'A next-generation real-time collaborative code editor with Ghost Agents - intelligent, proactive assistants that augment your development workflow with live collaboration, predictive conflict resolution, and automated code visualization completely powered by the combination of Minimax Agents, Gemini 3 Pro and Nano Banana Pro.',
+    tech: ['Minimax Agents', 'Gemini', 'Yjs', 'WebSockets', 'CRDTs', 'TypeScript', 'Monaco Editor', 'Shadcn/UI'],
+    metrics: [
+      { label: 'Collaboration', value: 'Real-time' },
+      { label: 'Conflict Resolution', value: 'Predictive' },
+      { label: 'Automation', value: 'Automated Code Visualization' }
+    ],
+    status: 'In Production',
+    link: 'https://coderalph.com',
+    featured: true
+  },
     {
         title: 'PyroGuard AI',
         subtitle: 'Multi-Agent RL System for Wildfire Suppression',

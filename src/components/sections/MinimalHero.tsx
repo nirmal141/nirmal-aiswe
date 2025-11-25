@@ -100,7 +100,7 @@ export default function MinimalHero() {
                 className="mb-6 md:mb-8"
               >
                 <h2 className="text-xl md:text-2xl lg:text-3xl font-normal" style={{ color: '#ffffff' }}>
-                  AI Innovator & Software Engineer \ <span style={{ color: '#fec195' }}>UI/UX Side Hustler</span>
+                  AI Innovator & Software Engineer \ <span style={{ color: '#fec195' }}>Builder by heart.</span>
                 </h2>
               </motion.div>
 
