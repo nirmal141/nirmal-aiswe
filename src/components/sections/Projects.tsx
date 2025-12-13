@@ -1,11 +1,11 @@
 // src/components/sections/Projects.tsx
 'use client';
 
-import { motion } from 'framer-motion';
-import { Card, CardHeader, CardContent, CardFooter } from '../ui/Card';
+import { useState, useRef, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Card } from '../ui/Card';
 import { Heading, MonoText, Caption } from '../ui/TypographyElements';
-import { ArrowUpRight } from 'lucide-react';
-import { cn } from '../../lib/utils';
+import { ArrowUpRight, ChevronDown, ChevronUp } from 'lucide-react';
 import Link from 'next/link';
 
 const projects = [
@@ -20,8 +20,106 @@ const projects = [
       { label: 'Conflict Resolution', value: 'Predictive' },
       { label: 'Automation', value: 'Automated Code Visualization' }
     ],
-    status: 'In Production',
+    status: 'In Production / Hackathon Winner',
     link: 'https://coderalph.com',
+    featured: true
+  },
+  {
+    title: 'Tuesday.com',
+    subtitle: 'Digital Twins & Project Simulator Platform',
+    year: '2025',
+    description: 'Built 10,000 AI customer replicas to test email campaigns before sending. See who opens, clicks, converts—or unsubscribes—in under 800ms. Plus a Gemini-powered project simulator that shows ripple effects when timelines change.',
+    tech: ['React', 'TypeScript', 'FastAPI', 'Scikit-Learn', 'Gemini AI', 'Gradient Boosting', 'Tailwind', 'Framer Motion'],
+    metrics: [
+      { label: 'Customer Twins', value: '10,000' },
+      { label: 'Response Time', value: '<800ms' }
+    ],
+    status: 'Hackathon Winner',
+    link: 'https://github.com/pru10t/tuesday.com',
+    featured: true
+  },
+  {
+    title: 'Sentio',
+    subtitle: 'Visual RAG System with Agentic Computer Vision',
+    year: '2025',
+    description: 'A unified visual RAG system for security and law enforcement that processes video footage (body cams, surveillance, dashcams) with natural language search across visual content, spoken audio, and detected objects. Features multi-modal search, smart deduplication, real-time object detection, and click-to-track segmentation.',
+    tech: ['LLaVA', 'YOLO', 'SAM2', 'Whisper', 'Llama', 'FastAPI', 'PostgreSQL', 'Docker'],
+    metrics: [
+      { label: 'Processing Latency', value: '~200ms' },
+      { label: 'Cost per Frame', value: '$0' }
+    ],
+    status: 'Hackathon Winner',
+    link: 'https://github.com/nirmal141/nvidiaxdell-hack',
+    featured: true
+  },
+  {
+    title: 'GhostWheel',
+    subtitle: 'Low-Latency CV Racing Controller',
+    year: '2025',
+    description: 'Built a real-time computer vision steering engine for Slowroads.io in under 60 minutes. Features smart frame skipping that decouples AI from render loop (2x FPS), custom PWM steering algorithm to fake analog input from binary keyboard, and optimized MediaPipe hand tracking with zero visual overhead.',
+    tech: ['Python', 'OpenCV', 'MediaPipe', 'PyAutoGUI', 'Computer Vision'],
+    metrics: [
+      { label: 'Build Time', value: '<60 min' },
+      { label: 'Framerate', value: '2x FPS' }
+    ],
+    status: 'Side Project',
+    link: 'https://github.com/nirmal141/ghostwheel',
+    featured: true
+  },
+  {
+    title: 'Geminecraft',
+    subtitle: 'Voxel Building Game in React',
+    year: '2025',
+    description: 'A pixelated voxel building game with first-person controls, multiple block types, dynamic weather, save/load system, and particle effects. Built with React 19, Three.js, React Three Fiber, and Zustand for state management.',
+    tech: ['React', 'Three.js', 'React Three Fiber', 'Zustand', 'TypeScript', 'Vite', 'Tailwind CSS'],
+    metrics: [
+      { label: 'Block Types', value: '5+' },
+      { label: 'Performance', value: 'Optimized' }
+    ],
+    status: 'Side Project',
+    link: 'https://github.com/nirmal141/geminecraft',
+    featured: true
+  },
+  {
+    title: 'Tiny LLM',
+    subtitle: 'GPT-Style Language Model from Scratch',
+    year: '2025',
+    description: 'A minimal GPT-style language model built from scratch in PyTorch, trained on Shakespeare. Features a 4-layer transformer with 4 attention heads (3.2M parameters), character-level tokenization, causal self-attention, and top-k/nucleus sampling for text generation.',
+    tech: ['PyTorch', 'Python', 'Transformers', 'NLP', 'Deep Learning'],
+    metrics: [
+      { label: 'Parameters', value: '3.2M' },
+      { label: 'Layers', value: '4' }
+    ],
+    status: 'Learning Project',
+    link: 'https://github.com/nirmal141/tiny-llm-from-scratch',
+    featured: true
+  },
+  {
+    title: 'NegotAItion',
+    subtitle: 'AI-Powered Price Negotiation System',
+    year: '2025',
+    description: 'An intelligent negotiation system that simulates realistic car price negotiations between buyers and sellers. Features AI-powered dynamic response generation, real-time sentiment analysis, multiple negotiation strategies (Stand Firm, Split the Difference, Final Offer, Walk Away), and progress tracking with negotiation metrics.',
+    tech: ['React', 'FastAPI', 'Anthropic API', 'Python', 'Pydantic', 'Axios'],
+    metrics: [
+      { label: 'Strategies', value: '5+' },
+      { label: 'Analysis', value: 'Real-time' }
+    ],
+    status: 'Side Project',
+    link: 'https://github.com/nirmal141/negotAItion',
+    featured: true
+  },
+  {
+    title: 'AI Journal built on Cloudflare Workers',
+    subtitle: 'Serverless AI Journal with Durable Objects',
+    year: '2025',
+    description: 'A chat-based AI journal built on Cloudflare Workers using a custom agent pattern with Durable Objects for persistent state. Features a 5-entry context window for Llama 3.3 70B responses, automatic mood analysis via separate AI calls, SQL emulation layer for querying entries, and stateful memory across sessions—all running on the edge with zero cold starts.',
+    tech: ['Cloudflare Workers', 'Durable Objects', 'Workers AI', 'Llama 3.3 70B', 'TypeScript', 'Edge Computing'],
+    metrics: [
+      { label: 'Model', value: 'Llama 3.3 70B' },
+      { label: 'Architecture', value: 'Edge-native' }
+    ],
+    status: 'Side Project',
+    link: 'https://github.com/nirmal141/cf_ai_journal',
     featured: true
   },
     {
@@ -48,7 +146,7 @@ const projects = [
         metrics: [
           { label: 'Published', value: 'Qualcomm Blog' }
         ],
-        status: 'Project in Progress',
+        status: 'Hackathon Winner',
         link: 'https://tutorai-iota.vercel.app',
         featured: true
       },
@@ -75,7 +173,7 @@ const projects = [
           { label: 'Revenue Impact', value: '$16M+' },
           { label: 'ROAS Improvement', value: '100%' }
         ],
-        status: 'In Development',
+        status: 'Internship Work',
         link: '#',
         featured: true
       },
@@ -125,6 +223,131 @@ const projects = [
   }
 ];
 
+// ProjectCard component with expandable description
+interface ProjectCardProps {
+  project: typeof projects[0];
+  index: number;
+}
+
+function ProjectCard({ project, index }: ProjectCardProps) {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [isTruncated, setIsTruncated] = useState(false);
+  const textRef = useRef<HTMLParagraphElement>(null);
+
+  // Check if text is actually truncated (overflows 3 lines)
+  useEffect(() => {
+    const el = textRef.current;
+    if (el) {
+      // Compare scrollHeight (full content) vs clientHeight (visible)
+      setIsTruncated(el.scrollHeight > el.clientHeight);
+    }
+  }, [project.description]);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.05 }}
+      viewport={{ once: true, margin: '-50px' }}
+    >
+      <Card
+        className="group overflow-hidden relative h-full"
+      >
+        <div className="p-5 md:p-6 relative z-10 h-full flex flex-col">
+          {/* Header */}
+          <div className="flex items-start justify-between mb-3">
+            <div>
+              <div className="flex items-center gap-3 mb-1">
+                <h3 className="text-lg md:text-xl font-medium text-gray-900 dark:text-white">
+                  {project.title}
+                </h3>
+                <MonoText className="text-gray-500 dark:text-gray-400 text-sm">
+                  {project.year}
+                </MonoText>
+              </div>
+              <p className="text-sm text-gray-600 dark:text-gray-300">
+                {project.subtitle}
+              </p>
+            </div>
+            
+            <Link 
+              href={project.link} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="p-1.5 text-gray-400 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors z-20 relative"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <ArrowUpRight size={16} />
+            </Link>
+          </div>
+
+          {/* Description - 3 lines by default, expandable if overflow */}
+          <div className="mb-4">
+            <p 
+              ref={textRef}
+              className={`text-sm text-gray-700 dark:text-gray-300 leading-relaxed ${
+                !isExpanded ? 'line-clamp-3' : ''
+              }`}
+            >
+              {project.description}
+            </p>
+            {isTruncated && (
+              <button
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setIsExpanded(!isExpanded);
+                }}
+                className="mt-2 text-xs font-medium text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors flex items-center gap-1"
+              >
+                {isExpanded ? (
+                  <>Read less <ChevronUp size={12} /></>
+                ) : (
+                  <>Read more <ChevronDown size={12} /></>
+                )}
+              </button>
+            )}
+          </div>
+
+          {/* Tech Tags */}
+          <div className="flex flex-wrap gap-1.5 mb-4">
+            {project.tech.slice(0, 5).map((tech) => (
+              <span
+                key={tech}
+                className="px-2 py-0.5 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 text-xs text-gray-700 dark:text-gray-300 rounded-sm"
+              >
+                {tech}
+              </span>
+            ))}
+            {project.tech.length > 5 && (
+              <span className="px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400">
+                +{project.tech.length - 5}
+              </span>
+            )}
+          </div>
+
+          {/* Metrics & Status - push to bottom */}
+          <div className="mt-auto flex items-end justify-between">
+            <div className="flex gap-4">
+              {project.metrics.slice(0, 2).map((metric) => (
+                <div key={metric.label}>
+                  <div className="text-base font-light text-gray-900 dark:text-white">
+                    {metric.value}
+                  </div>
+                  <Caption className="text-xs text-gray-600 dark:text-gray-400">{metric.label}</Caption>
+                </div>
+              ))}
+            </div>
+            
+            <Caption className="text-gray-900 dark:text-white text-xs">
+              {project.status}
+            </Caption>
+          </div>
+        </div>
+      </Card>
+    </motion.div>
+  );
+}
+
 export default function Projects() {
   return (
     <section id="projects" className="py-16 md:py-24 lg:py-32 px-4 md:px-8 transition-colors duration-500">
@@ -158,157 +381,10 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Projects Grid */}
-        <div className="space-y-6 md:space-y-8">
+        {/* Projects Grid - 2 columns */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ once: true, margin: '-50px' }}
-            >
-              <Card
-                className={cn(
-                  'group overflow-hidden relative cursor-pointer',
-                  project.featured && 'lg:grid lg:grid-cols-12 lg:gap-8'
-                )}
-                onClick={() => window.open(project.link, '_blank', 'noopener,noreferrer')}
-              >
-                {project.featured ? (
-                  // Featured Project Layout
-                  <>
-                    <div className="lg:col-span-8 p-5 md:p-8 lg:p-12 relative z-10 pointer-events-none">
-                      <div className="flex items-start justify-between mb-4 md:mb-6">
-                        <div>
-                          <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-1 md:mb-2">
-                            <h3 className="text-xl md:text-2xl lg:text-3xl font-medium text-gray-900 dark:text-white">
-                              {project.title}
-                            </h3>
-                            <MonoText className="text-gray-500 dark:text-gray-400 text-sm md:text-base">
-                              {project.year}
-                            </MonoText>
-                          </div>
-                          <p className="text-base md:text-lg text-gray-600 dark:text-gray-300">
-                            {project.subtitle}
-                          </p>
-                        </div>
-                        
-                        <Link 
-                          href={project.link} 
-                          target="_blank" 
-                          rel="noopener noreferrer" 
-                          className="p-1 md:p-2 text-gray-400 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors z-20 relative pointer-events-auto"
-                          onClick={(e) => e.stopPropagation()}
-                        >
-                          <ArrowUpRight size={18} className="md:w-5 md:h-5" />
-                        </Link>
-                      </div>
-
-                      <p className="text-sm md:text-base lg:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-5 md:mb-8">
-                        {project.description}
-                      </p>
-
-                      <div className="flex flex-wrap gap-1.5 md:gap-2 mb-5 md:mb-8">
-                        {project.tech.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-2 md:px-3 py-0.5 md:py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 text-xs md:text-sm text-gray-700 dark:text-gray-300 rounded-sm"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-
-                      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                        <div className="flex flex-wrap gap-4 md:gap-8">
-                          {project.metrics.map((metric) => (
-                            <div key={metric.label} className="min-w-[80px]">
-                              <div className="text-lg md:text-2xl font-light text-gray-900 dark:text-white">
-                                {metric.value}
-                              </div>
-                              <Caption className="text-xs md:text-sm text-gray-600 dark:text-gray-400">{metric.label}</Caption>
-                            </div>
-                          ))}
-                        </div>
-                        
-                        <Caption className="text-gray-900 dark:text-white text-xs md:text-sm">
-                          {project.status}
-                        </Caption>
-                      </div>
-                    </div>
-
-                    <div className="lg:col-span-4 bg-gray-50 dark:bg-gray-800 p-5 md:p-8 lg:p-12 flex items-center justify-center min-h-[200px] md:min-h-[250px] lg:min-h-[300px] relative z-10 pointer-events-none">
-                      <div className="text-center">
-                        <div className="w-12 h-12 md:w-16 md:h-16 bg-gray-200 dark:bg-gray-600 rounded-full mb-3 md:mb-4 mx-auto"></div>
-                        <MonoText className="text-xs md:text-sm text-gray-600 dark:text-gray-400">Project Preview</MonoText>
-                      </div>
-                    </div>
-                  </>
-                ) : (
-                  // Standard Project Layout
-                  <div className="p-5 md:p-8 relative z-10 pointer-events-none">
-                    <div className="flex items-start justify-between mb-3 md:mb-4">
-                      <div>
-                        <div className="flex flex-col md:flex-row md:items-center gap-1 md:gap-4 mb-1 md:mb-2">
-                          <h3 className="text-lg md:text-xl font-medium text-gray-900 dark:text-white">
-                            {project.title}
-                          </h3>
-                          <MonoText className="text-gray-500 dark:text-gray-400 text-sm">
-                            {project.year}
-                          </MonoText>
-                        </div>
-                        <p className="text-sm md:text-base text-gray-600 dark:text-gray-300">
-                          {project.subtitle}
-                        </p>
-                      </div>
-                      
-                      <Link 
-                        href={project.link} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="p-1 md:p-2 text-gray-400 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors z-20 relative pointer-events-auto"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        <ArrowUpRight size={16} className="md:w-4 md:h-4" />
-                      </Link>
-                    </div>
-
-                    <p className="text-sm md:text-base text-gray-700 dark:text-gray-300 leading-relaxed mb-4 md:mb-6">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-6">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="px-2 py-0.5 md:py-1 bg-gray-50 dark:bg-gray-700 border border-gray-100 dark:border-gray-600 text-xs text-gray-700 dark:text-gray-300 rounded-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-                      <div className="flex flex-wrap gap-4 md:gap-6">
-                        {project.metrics.map((metric) => (
-                          <div key={metric.label} className="min-w-[80px]">
-                            <div className="text-base md:text-lg font-light text-gray-900 dark:text-white">
-                              {metric.value}
-                            </div>
-                            <Caption className="text-xs text-gray-600 dark:text-gray-400">{metric.label}</Caption>
-                          </div>
-                        ))}
-                      </div>
-                      
-                      <Caption className="text-gray-900 dark:text-white text-xs md:text-sm">
-                        {project.status}
-                      </Caption>
-                    </div>
-                  </div>
-                )}
-              </Card>
-            </motion.div>
+            <ProjectCard key={project.title} project={project} index={index} />
           ))}
         </div>
 

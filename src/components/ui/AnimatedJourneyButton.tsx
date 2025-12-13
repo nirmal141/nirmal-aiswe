@@ -60,7 +60,7 @@ const AnimatedJourneyButton: React.FC<AnimatedJourneyButtonProps> = ({
 const StyledWrapper = styled.div`
   button, a {
     position: relative;
-    padding: 15px 45px;
+    padding: 10px 45px;
     background: #fec195;
     font-size: 17px;
     font-weight: 500;
