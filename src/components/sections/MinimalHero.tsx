@@ -6,7 +6,6 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 import { BackgroundPaths } from '../ui/background-paths';
-import AnimatedJourneyButton from '../ui/AnimatedJourneyButton';
 import Link from 'next/link';
 
 const currentStatus = {
@@ -168,24 +167,23 @@ export default function MinimalHero() {
                 className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
               >
                 <Link href="/story">
-                  <motion.div
-                    whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(254, 193, 149, 0.3)" }}
+                  <motion.button
+                    className="px-7 py-3 bg-[#fec195] text-[#1a1a1a] text-sm font-medium rounded-md transition-all duration-200"
+                    whileHover={{ y: -2, backgroundColor: '#f5b07a' }}
                     whileTap={{ y: 0, scale: 0.98 }}
                   >
-                    <AnimatedJourneyButton>
-                      View My Journey
-                    </AnimatedJourneyButton>
-                  </motion.div>
+                    View My Journey
+                  </motion.button>
                 </Link>
                 
-                <motion.div
-                  whileHover={{ y: -2, boxShadow: "0 8px 15px rgba(254, 193, 149, 0.3)" }}
+                <motion.a
+                  href="mailto:nb3964@nyu.edu"
+                  className="px-7 py-3 bg-transparent text-white text-sm font-medium rounded-md border border-white/30 transition-all duration-200"
+                  whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.6)' }}
                   whileTap={{ y: 0, scale: 0.98 }}
                 >
-                  <AnimatedJourneyButton href="mailto:nb3964@nyu.edu">
-                    Get in Touch
-                  </AnimatedJourneyButton>
-                </motion.div>
+                  Get in Touch
+                </motion.a>
               </motion.div>
             </div>
           </div>
