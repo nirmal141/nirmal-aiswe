@@ -45,7 +45,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-transparent border-t border-white/10">
+    <footer className="bg-transparent border-t border-white/10 pb-24 md:pb-28">
       <div className="max-w-7xl mx-auto px-8 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-y-10 gap-x-8 mb-12">

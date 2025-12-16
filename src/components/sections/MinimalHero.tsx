@@ -35,7 +35,7 @@ export default function MinimalHero() {
 
       {/* Main content container - Two column layout */}
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20 pb-32 md:pb-20">
           
           {/* Left Column - Avatar */}
           <motion.div
@@ -148,7 +148,7 @@ export default function MinimalHero() {
                 transition={{ duration: 0.8, delay: 1.0 }}
                 className="mb-8 md:mb-10 flex justify-center lg:justify-start"
               >
-                <div className="inline-flex flex-col sm:flex-row items-center gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 bg-white/5 border border-white/10 rounded-full">
+                <div className="inline-flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 bg-white/5 border border-white/10 rounded-full" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }}>
                   <span className="text-xs md:text-sm font-mono" style={{ color: '#d1d5db' }}>
                     {currentStatus.education}
                   </span>
@@ -164,11 +164,11 @@ export default function MinimalHero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center lg:justify-start"
+                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto"
               >
-                <Link href="/story">
+                <Link href="/story" className="block w-full sm:w-auto">
                   <motion.button
-                    className="px-7 py-3 bg-[#fec195] text-[#1a1a1a] text-sm font-medium rounded-md transition-all duration-200"
+                    className="w-full sm:w-auto min-w-[160px] h-12 inline-flex items-center justify-center px-6 bg-[#fec195] text-[#1a1a1a] text-sm font-medium rounded-lg transition-all duration-200"
                     whileHover={{ y: -2, backgroundColor: '#f5b07a' }}
                     whileTap={{ y: 0, scale: 0.98 }}
                   >
@@ -178,7 +178,7 @@ export default function MinimalHero() {
                 
                 <motion.a
                   href="mailto:nb3964@nyu.edu"
-                  className="px-7 py-3 bg-transparent text-white text-sm font-medium rounded-md border border-white/30 transition-all duration-200"
+                  className="w-full sm:w-auto min-w-[160px] h-12 inline-flex items-center justify-center px-6 bg-transparent text-white text-sm font-medium rounded-lg border border-white/30 transition-all duration-200"
                   whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.6)' }}
                   whileTap={{ y: 0, scale: 0.98 }}
                 >

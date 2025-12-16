@@ -3,6 +3,7 @@ import { Analytics } from '@vercel/analytics/react'
 import { ThemeProvider } from '../lib/theme-context'
 import CustomCursor from '../components/ui/CustomCursor'
 import SmoothScroll from '../components/ui/SmoothScroll'
+import ChatBot from '../components/ui/ChatBot'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -19,6 +20,7 @@ export default function RootLayout({
           <SmoothScroll />
           <CustomCursor />
           {children}
+          <ChatBot />
         </ThemeProvider>
         <Analytics />
       </body>

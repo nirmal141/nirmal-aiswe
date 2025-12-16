@@ -484,12 +484,14 @@ a:focus {
 
 /* Alternative stylish name option */
 .elegant-name {
-  font-family: var(--font-elegant);
+  font-family: Georgia, serif;
   font-weight: 300;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   position: relative;
-  color: inherit;
+  color: rgba(255, 255, 255, 1);
+  background-color: rgba(0, 0, 0, 1);
+  box-shadow: 0px 4px 12px 0px rgba(0, 0, 0, 0.15);
 }
 
 .elegant-name::first-letter {

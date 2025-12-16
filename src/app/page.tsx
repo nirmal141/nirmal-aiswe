@@ -3,7 +3,7 @@ import MinimalHero from '../components/sections/MinimalHero';
 
 export default function Home() {
   return (
-    <main className="bg-black text-white">
+    <main className="bg-black text-white min-h-screen">
       <MinimalNavigation />
       <MinimalHero />
     </main>
