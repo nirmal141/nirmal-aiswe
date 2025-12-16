@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // ============ CONFIGURATION ============
-const DAILY_LIMIT = 5;
-const MAX_MESSAGE_LENGTH = 500; // Prevent extremely long messages
+const DAILY_LIMIT = 3;
+const MAX_MESSAGE_LENGTH = 400; // Prevent extremely long messages
 const MAX_HISTORY_LENGTH = 6; // Limit conversation history
-const MIN_REQUEST_INTERVAL_MS = 1000; // Minimum 1 second between requests (anti-spam)
-const UNKNOWN_IP_DAILY_LIMIT = 2; // Stricter limit for unknown IPs
+const MIN_REQUEST_INTERVAL_MS = 2000; // Minimum 2 second between requests (anti-spam)
+const UNKNOWN_IP_DAILY_LIMIT = 1; // Stricter limit for unknown IPs
 
 // ============ RATE LIMITING ============
 interface RateLimitData {
