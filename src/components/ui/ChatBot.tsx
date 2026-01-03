@@ -232,7 +232,7 @@ export default function ChatBot() {
               exit={{ scale: 0, opacity: 0 }}
               whileTap={{ scale: 0.92 }}
               onClick={() => setIsOpen(true)}
-              className="fixed bottom-5 right-5 z-50 flex items-center gap-2 px-4 py-3 rounded-full shadow-2xl"
+              className="fixed bottom-5 right-5 z-50 flex items-center gap-2 px-3 py-2 rounded-full shadow-2xl"
               style={{
                 background: 'linear-gradient(135deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.06) 100%)',
                 backdropFilter: 'blur(24px)',
@@ -241,7 +241,7 @@ export default function ChatBot() {
                 boxShadow: '0 8px 32px rgba(0,0,0,0.4)',
               }}
             >
-              <MessageCircle size={18} className="text-white/90" />
+              <MessageCircle size={16} className="text-white/90" />
               <span className="text-xs font-medium text-white/80">Ask AI</span>
             </motion.button>
           )}

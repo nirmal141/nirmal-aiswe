@@ -74,7 +74,7 @@ export default function MinimalHero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1 }}
-          className="absolute top-8 left-8 md:top-12 md:left-12 flex flex-col gap-1"
+          className="absolute top-28 left-8 md:top-12 md:left-12 flex flex-col gap-1"
         >
           <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase">Role</span>
           <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">Software Engineer</span>
@@ -84,7 +84,7 @@ export default function MinimalHero() {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 1.2 }}
-          className="absolute top-8 right-8 md:top-12 md:right-12 flex flex-col gap-1 text-right"
+          className="absolute top-28 right-8 md:top-12 md:right-12 flex flex-col gap-1 text-right"
         >
           <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase">Based In</span>
           <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">New York, NY</span>
