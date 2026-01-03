@@ -10,6 +10,17 @@ import Image from 'next/image';
 
 const milestones = [  
   {
+    id: 'conduit',
+    year: 'January 2026 - Present',
+    title: 'Software Engineering Intern',
+    company: 'Conduit Commerce',
+    location: 'New York, NY',
+    description: 'Dropshipping made easy.',
+    achievement: 'Learned a lot and this gave me a founders mindset',
+    type: 'experience',
+    website: 'https://conduitcommerce.com'
+  },
+  {
     id: 'nyu-research',
     year: 'Oct 2025 - Present',
     title: 'Research Assistant',

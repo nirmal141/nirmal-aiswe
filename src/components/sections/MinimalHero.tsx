@@ -1,193 +1,140 @@
-// ✨ MINIMAL HERO - Clean Hero Section
+// ✨ MINIMAL HERO - Aesthetic Edition
 // src/components/sections/MinimalHero.tsx
 
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import Image from 'next/image';
-import { BackgroundPaths } from '../ui/background-paths';
-import Link from 'next/link';
+import { MouseEvent } from 'react';
 
-const currentStatus = {
-  availability: 'Available for FTE opportunities',
-  location: 'New York, NY',
-  education: 'MS Computer Science, NYU',
-  expected: 'May 2026'
-};
+function SpotlightAvatar() {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
-// const keyMetrics = [
-//   { value: '20,000+', label: 'Lines of Code (Quality over Quantity)' },
-//   { value: '6', label: 'Internships' },
-//   { value: '10+', label: 'Mentorships' },
-//   { value: '3x', label: 'Hackathon Winner' }
-// ];
+  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect();
+    mouseX.set(clientX - left);
+    mouseY.set(clientY - top);
+  }
 
-export default function MinimalHero() {
+  const maskImage = useMotionTemplate`radial-gradient(circle 280px at ${mouseX}px ${mouseY}px, black, transparent)`;
 
   return (
-    <section 
-      className="min-h-screen flex items-center justify-center px-4 md:px-8 lg:px-16 bg-black relative overflow-hidden"
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+      transition={{ duration: 3, ease: "easeOut" }}
+      className="absolute z-0 w-full max-w-[500px] h-[50vh] md:h-[70vh] lg:h-[80vh] select-none group"
+      onMouseMove={handleMouseMove}
     >
-      {/* Background Paths Animation */}
-      <div className="absolute inset-0 z-0 opacity-40">
-        <BackgroundPaths />
+      {/* 1. Base Layer: Grayscale & Stylized */}
+      <div className="absolute inset-0 w-full h-full mask-fade-bottom grayscale contrast-110 brightness-90">
+        <Image
+          src="/headshot_cutout.png"
+          alt="Nirmal Boghara Base"
+          fill
+          className="object-contain object-bottom"
+          priority
+        />
       </div>
 
-      {/* Main content container - Two column layout */}
-      <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-screen py-20 pb-32 md:pb-20">
+      {/* 2. Reveal Layer: Full Color, Hidden by Default, Revealed by Mask */}
+      <motion.div 
+        className="absolute inset-0 w-full h-full mask-fade-bottom reveal-on-mobile"
+        style={{ maskImage, WebkitMaskImage: maskImage }}
+      >
+        <Image
+          src="/headshot_cutout.png"
+          alt="Nirmal Boghara Color"
+          fill
+          className="object-contain object-bottom"
+          priority
+        />
+      </motion.div>
+    </motion.div>
+  );
+}
+
+export default function MinimalHero() {
+  return (
+    <section 
+      className="relative w-full h-screen flex flex-col items-center justify-center bg-[#050505] overflow-hidden selection:bg-white/20"
+    >
+      {/* 🎞️ Subtle Grain Overlay */}
+      <div className="grain-subtle" />
+
+      {/* Background Image / Texture - Very subtle radial gradient to lift the center */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/20 via-[#050505] to-[#050505] z-0" />
+
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-[1600px] h-full flex flex-col items-center justify-center p-6 md:p-12">
+        
+        {/* Top Meta Info - Absolute positioning for 'editorial' feel */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1 }}
+          className="absolute top-8 left-8 md:top-12 md:left-12 flex flex-col gap-1"
+        >
+          <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase">Role</span>
+          <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">Software Engineer</span>
+        </motion.div>
+
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.2 }}
+          className="absolute top-8 right-8 md:top-12 md:right-12 flex flex-col gap-1 text-right"
+        >
+          <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase">Based In</span>
+          <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">New York, NY</span>
+        </motion.div>
+
+        {/* CENTERPIECE */}
+        <div className="relative flex flex-col items-center justify-center">
           
-          {/* Left Column - Avatar */}
-          <motion.div
-            className="flex items-center justify-center order-1 lg:order-1"
-            initial={{ opacity: 0, scale: 0.8, x: -100 }}
-            animate={{ opacity: 1, scale: 1, x: 0 }}
-            transition={{ duration: 1, ease: "easeOut" }}
-          >
-            <div className="relative">
-              {/* Avatar Container - Large and Centered */}
-              <motion.div
-                className="relative w-[350px] h-[350px] sm:w-[450px] sm:h-[450px] md:w-[550px] md:h-[550px] lg:w-[600px] lg:h-[600px]"
-                animate={{
-                  y: [0, -20, 0],
-                }}
-                transition={{
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-                whileHover={{ scale: 1.05 }}
-              >
-                {/* Main avatar image - seamlessly blending with black background */}
-                <div className="relative w-full h-full overflow-hidden">
-                  <Image
-                    src="/nirmal-headshot.png"
-                    alt="Nirmal Boghara - Avatar"
-                    fill
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
+          {/* Avatar - Spotlight Reveal Effect */}
+          <SpotlightAvatar />
 
-          {/* Right Column - Content */}
-          <div className="flex flex-col justify-center order-2 lg:order-2 text-center lg:text-left">
-            {/* Name */}
-            <motion.div 
-              className="mb-4 md:mb-6"
-              initial={{ opacity: 0, y: 20 }}
+          {/* Typography - Intertwined with image */}
+          <div className="relative z-10 text-center mix-blend-normal mt-[40vh] md:mt-48">
+            <motion.h1 
+              initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.1 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              className="font-stranger text-[#e5e5e5] stranger-glow-contain text-5xl sm:text-7xl md:text-8xl lg:text-[8vw] leading-[0.9] tracking-tight"
+              data-text="NIRMAL"
             >
-              <h1 
-                className="elegant-name text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-light" 
-                style={{ color: '#ffffff' }}
-              >
-                Nirmal Boghara
-              </h1>
-            </motion.div>
-
-            {/* Rest of content */}
-            <div>
-              {/* Title */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-                className="mb-6 md:mb-8"
-              >
-                <h2 className="text-xl md:text-2xl lg:text-3xl font-normal" style={{ color: '#ffffff' }}>
-                  AI Innovator & Software Engineer \ <span style={{ color: '#fec195' }}>Builder by heart.</span>
-                </h2>
-              </motion.div>
-
-              {/* Description */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="mb-8 md:mb-10"
-              >
-                <p className="text-base md:text-lg lg:text-xl font-light leading-relaxed" style={{ color: '#d1d5db' }}>
-                  "Merging code, creativity, and business to redefine what's possible with AI."
-                </p>
-              </motion.div>
-
-              {/* Key metrics - compact grid */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.6 }}
-                className="grid grid-cols-2 gap-4 mb-8 md:mb-10"
-              >
-                {/* {keyMetrics.map((metric, index) => (
-                  <motion.div
-                    key={metric.label}
-                    className="text-center lg:text-left"
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.8 + (index * 0.1) }}
-                    whileHover={{ scale: 1.05, y: -2 }}
-                  >
-                    <div className="text-2xl md:text-3xl font-light mb-1" style={{ color: '#ffffff' }}>
-                      {metric.value}
-                    </div>
-                    <div className="text-xs md:text-sm font-medium" style={{ color: '#9ca3af' }}>
-                      {metric.label}
-                    </div>
-                  </motion.div>
-                ))} */}
-              </motion.div>
-
-              {/* Education status */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.0 }}
-                className="mb-8 md:mb-10 flex justify-center lg:justify-start"
-              >
-                <div className="inline-flex flex-col sm:flex-row items-center justify-center flex-wrap gap-2 md:gap-3 px-4 md:px-6 py-2 md:py-3 bg-white/5 border border-white/10 rounded-full" style={{ fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, sans-serif' }}>
-                  <span className="text-xs md:text-sm font-mono" style={{ color: '#d1d5db' }}>
-                    {currentStatus.education}
-                  </span>
-                  <span className="hidden sm:inline" style={{ color: '#6b7280' }}>•</span>
-                  <span className="text-xs md:text-sm" style={{ color: '#d1d5db' }}>
-                    Expected {currentStatus.expected}
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* CTA buttons */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 1.2 }}
-                className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start w-full sm:w-auto"
-              >
-                <Link href="/story" className="block w-full sm:w-auto">
-                  <motion.button
-                    className="w-full sm:w-auto min-w-[160px] h-12 inline-flex items-center justify-center px-6 bg-[#fec195] text-[#1a1a1a] text-sm font-medium rounded-lg transition-all duration-200"
-                    whileHover={{ y: -2, backgroundColor: '#f5b07a' }}
-                    whileTap={{ y: 0, scale: 0.98 }}
-                  >
-                    View My Journey
-                  </motion.button>
-                </Link>
-                
-                <motion.a
-                  href="mailto:nb3964@nyu.edu"
-                  className="w-full sm:w-auto min-w-[160px] h-12 inline-flex items-center justify-center px-6 bg-transparent text-white text-sm font-medium rounded-lg border border-white/30 transition-all duration-200"
-                  whileHover={{ y: -2, borderColor: 'rgba(255,255,255,0.6)' }}
-                  whileTap={{ y: 0, scale: 0.98 }}
-                >
-                  Get in Touch
-                </motion.a>
-              </motion.div>
-            </div>
+              NIRMAL
+            </motion.h1>
+            
+            <motion.h1 
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="font-stranger text-[#e5e5e5] stranger-glow-contain text-5xl sm:text-7xl md:text-8xl lg:text-[8vw] leading-[0.9] tracking-tight md:mt-[-2vw]"
+              data-text="BOGHARA"
+            >
+              B<span className="text-[#e52905]">OG</span>HARA
+            </motion.h1>
           </div>
+
+          {/* Subtext */}
+          <motion.div
+             initial={{ opacity: 0 }}
+             animate={{ opacity: 1 }}
+             transition={{ duration: 1.5, delay: 0.8 }}
+             className="mt-12 md:mt-2 max-w-sm md:max-w-md text-center z-20"
+          >
+             <p className="font-heading text-sm md:text-base font-light text-neutral-400 leading-relaxed tracking-wide text-balance">
+               Merging code, creativity, and business to redefine what's possible with AI.
+             </p>
+          </motion.div>
+        
         </div>
+
+
+
       </div>
     </section>
   );

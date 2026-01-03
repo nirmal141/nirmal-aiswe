@@ -14,6 +14,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@import url('https://fonts.cdnfonts.com/css/itc-benguiat');
 
 /* CSS Variables for Advanced Typography */
 :root {
@@ -23,14 +24,19 @@
   --font-mono: 'JetBrains Mono', monospace;
   --font-elegant: 'Cormorant Garamond', serif;
   --font-stylish: 'Italiana', serif;
-  
+  --font-stranger: 'ITC Benguiat', serif;
+  /* Stranger Things Font */
+
+  --stranger-red: #e52905;
+  --stranger-glow: #e52905;
+
   --text-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05);
   --text-shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.05);
   --text-shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+
   --gradient-text: linear-gradient(135deg, #1a1a1a 0%, #666666 100%);
   --gradient-subtle: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-  
+
   /* Light mode colors */
   --bg-primary: #ffffff;
   --bg-secondary: #fafafa;
@@ -41,7 +47,8 @@
 }
 
 /* Dark mode colors - Always apply for hero section */
-.dark, :root {
+.dark,
+:root {
   --bg-primary: #000000;
   --bg-secondary: #171717;
   --text-primary: #ffffff;
@@ -200,7 +207,8 @@ a:hover {
 }
 
 /* Typography Hierarchy */
-h1, .h1 {
+h1,
+.h1 {
   font-family: var(--font-display);
   font-weight: 300;
   letter-spacing: -0.02em;
@@ -208,7 +216,8 @@ h1, .h1 {
   color: var(--text-primary);
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -216,7 +225,8 @@ h2, .h2 {
   color: var(--text-primary);
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: -0.01em;
@@ -224,7 +234,8 @@ h3, .h3 {
   color: var(--text-primary);
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: var(--font-heading);
   font-weight: 500;
   letter-spacing: -0.005em;
@@ -232,7 +243,8 @@ h4, .h4 {
   color: var(--text-primary);
 }
 
-p, .p {
+p,
+.p {
   font-family: var(--font-body);
   font-weight: 300;
   letter-spacing: -0.005em;
@@ -241,14 +253,17 @@ p, .p {
 }
 
 /* Code and Mono */
-code, pre, .code {
+code,
+pre,
+.code {
   font-family: var(--font-mono);
   font-weight: 300;
   font-variant-numeric: tabular-nums;
 }
 
 /* Button Improvements */
-button, .button {
+button,
+.button {
   font-family: var(--font-body);
   font-weight: 400;
   letter-spacing: -0.005em;
@@ -258,16 +273,20 @@ button, .button {
   background: none;
 }
 
-button:hover, .button:hover {
+button:hover,
+.button:hover {
   transform: translateY(-1px);
 }
 
-button:active, .button:active {
+button:active,
+.button:active {
   transform: translateY(0);
 }
 
 /* Form Elements */
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: var(--font-body);
   font-weight: 300;
   letter-spacing: -0.005em;
@@ -283,7 +302,8 @@ blockquote {
 }
 
 /* Lists */
-ul, ol {
+ul,
+ol {
   font-family: var(--font-body);
   font-weight: 300;
   letter-spacing: -0.005em;
@@ -343,11 +363,11 @@ img {
     font-size: 16px;
     line-height: 1.5;
   }
-  
+
   .text-display {
     line-height: 1;
   }
-  
+
   .text-heading {
     line-height: 1.2;
   }
@@ -357,7 +377,7 @@ img {
   .text-display {
     letter-spacing: -0.015em;
   }
-  
+
   .text-heading {
     letter-spacing: -0.005em;
   }
@@ -371,21 +391,27 @@ img {
     box-shadow: none !important;
     text-shadow: none !important;
   }
-  
+
   body {
     font-size: 12pt;
     line-height: 1.4;
   }
-  
-  h1, h2, h3 {
+
+  h1,
+  h2,
+  h3 {
     page-break-after: avoid;
   }
-  
-  blockquote, pre, img {
+
+  blockquote,
+  pre,
+  img {
     page-break-inside: avoid;
   }
-  
-  p, h2, h3 {
+
+  p,
+  h2,
+  h3 {
     orphans: 3;
     widows: 3;
   }
@@ -393,7 +419,10 @@ img {
 
 /* Accessibility - Reduce Motion */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -408,13 +437,14 @@ img {
     -webkit-text-fill-color: initial;
     color: #000000;
   }
-  
+
   .text-outline {
     -webkit-text-stroke: none;
     -webkit-text-fill-color: initial;
     color: #000000;
   }
 }
+
 /* Add to the bottom of your existing globals.css */
 
 /* Minimal design utilities */
@@ -509,4 +539,58 @@ a:focus {
   -webkit-text-stroke: 1px #171717;
   position: relative;
   font-size: 1.1em;
+}
+
+/* Aesthetic Minimal Theme Utilities */
+.font-stranger {
+  font-family: var(--font-stranger);
+  font-weight: 700;
+}
+
+.stranger-red {
+  color: var(--stranger-red);
+
+}
+
+.font-elegant-hero {
+  font-family: var(--font-stylish);
+  /* Italiana */
+  letter-spacing: -0.02em;
+  font-weight: 400;
+}
+
+.text-reveal-mask {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+.grain-subtle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 50;
+  opacity: 0.03;
+  /* Reduced opacity */
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Smooth gradient mask for images to blend into black */
+.mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+}
+
+.mask-fade-radial {
+  mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 70%);
+}
+
+@media (max-width: 768px) {
+  .reveal-on-mobile {
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+    opacity: 1 !important;
+  }
 }

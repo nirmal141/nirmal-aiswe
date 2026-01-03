@@ -95,12 +95,12 @@ export default function MinimalNavigation() {
           <div className="flex items-center gap-3 sm:gap-6">
             <Link href="/" passHref legacyBehavior>
               <motion.a
-                className="text-base sm:text-lg font-semibold transition-all duration-300"
-                style={{ color: isOverDarkSection ? '#ffffff' : '#171717' }}
+                className="text-base sm:text-lg font-semibold font-stranger transition-all duration-300"
+                style={{ color: isOverDarkSection ? '#e52905' : '#171717' }}
                 whileHover={{ scale: 1.05, y: -1 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Nirmal Boghara
+                NB
               </motion.a>
             </Link>
             
