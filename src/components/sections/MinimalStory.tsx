@@ -763,7 +763,7 @@ export default function MinimalStory() {
   return (
     <div id="story" ref={containerRef} className="transition-colors duration-500">
       {/* Hero section */}
-      <section className="py-32 px-8">
+      <section className="pt-32 px-8">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <DisplayText weight="light" className="text-gray-900 dark:text-white mb-6">
@@ -786,18 +786,12 @@ export default function MinimalStory() {
       </section>
 
       {/* Timeline */}
-      <section className="py-20 px-8">
+      <section className="pb-20 pt-10 px-8">
         <div className="max-w-5xl mx-auto">
           <motion.div
-            className="mb-16"
+            className="mb-8"
             {...fadeInUp}
           >
-            <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-4 text-center">
-              Career Timeline
-            </Heading>
-            <p className="text-lg text-gray-600 dark:text-gray-300 font-light text-center mb-8">
-              Key milestones and achievements from education to industry impact
-            </p>
             
             {/* Filter controls */}
             <TimelineFilter activeFilter={activeFilter} setActiveFilter={setActiveFilter} />

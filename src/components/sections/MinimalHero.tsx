@@ -6,6 +6,7 @@
 import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
 import Image from 'next/image';
 import { MouseEvent } from 'react';
+import { Smoke } from '@/components/ui/smoke';
 
 function SpotlightAvatar() {
   const mouseX = useMotionValue(0);
@@ -24,7 +25,7 @@ function SpotlightAvatar() {
       initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
       animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
       transition={{ duration: 3, ease: "easeOut" }}
-      className="absolute z-0 w-full max-w-[500px] h-[50vh] md:h-[70vh] lg:h-[80vh] select-none group"
+      className="absolute z-0 w-full max-w-[500px] h-[40vh] md:h-[60vh] lg:h-[70vh] select-none group"
       onMouseMove={handleMouseMove}
     >
       {/* 1. Base Layer: Grayscale & Stylized */}
@@ -65,6 +66,17 @@ export default function MinimalHero() {
 
       {/* Background Image / Texture - Very subtle radial gradient to lift the center */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-neutral-900/20 via-[#050505] to-[#050505] z-0" />
+
+      {/* Smoke Effect - Very subtle */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <Smoke 
+          density={6} 
+          opacity={0.2} 
+          color="#9e4f4f" 
+          enableWind 
+          windStrength={[0.001, 0.001, 0]}
+        />
+      </div>
 
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-[1600px] h-full flex flex-col items-center justify-center p-6 md:p-12">

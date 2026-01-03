@@ -14,7 +14,7 @@ export interface SmokeProps extends React.HTMLAttributes<HTMLDivElement> {
   density?: number;
   /**
    * The color of the smoke
-   * @default "#ffffff"
+   * @default "#f60000ff"
    */
   color?: string;
   /**
@@ -62,7 +62,7 @@ export interface SmokeProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Smoke = forwardRef<HTMLDivElement, SmokeProps>(({
   className,
   density = 50,
-  color = '#ffffff',
+  color = '#9e4f4f',
   opacity = 0.5,
   enableRotation = true,
   rotation = [0, 0, 0.1],

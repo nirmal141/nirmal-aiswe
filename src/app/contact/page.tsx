@@ -12,8 +12,8 @@ export default function ContactPage() {
       {/* Smoke Background - Fixed behind everything */}
       <div className="fixed inset-0 w-full h-full z-0">
         <Smoke
-          density={30}
-          color="#666666"
+          density={6}
+          color="#9e4f4f"
           opacity={0.4}
           enableRotation={true}
           rotation={[0, 0, 0.05]}
