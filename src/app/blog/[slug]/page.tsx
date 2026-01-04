@@ -57,13 +57,13 @@ export default function BlogPost({ params }: { params: { slug: string } }) {
         </header>
 
         <div className="prose prose-invert prose-lg max-w-none 
-          prose-headings:font-mono prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-white
-          prose-p:font-mono prose-p:text-neutral-300 prose-p:leading-normal prose-p:tracking-tight
+          prose-headings:font-display prose-headings:font-normal prose-headings:tracking-tight prose-headings:text-white
+          prose-p:font-display prose-p:text-neutral-300 prose-p:leading-normal prose-p:tracking-wide
           prose-a:text-[#e52905]/50 prose-a:no-underline hover:prose-a:underline
           prose-strong:text-white prose-strong:font-semibold
-          prose-ul:font-mono prose-ul:text-neutral-300 prose-ul:leading-normal prose-ul:tracking-tight
+          prose-ul:font-display prose-ul:text-neutral-300 prose-ul:leading-normal prose-ul:tracking-wide
           prose-li:marker:text-[#e52905]/50
-          prose-blockquote:border-l-4 prose-blockquote:border-[#e52905]/50 prose-blockquote:pl-6 prose-blockquote:py-1 prose-blockquote:my-4 prose-blockquote:italic prose-blockquote:font-mono prose-blockquote:text-md prose-blockquote:text-neutral-200 prose-blockquote:bg-neutral-900/90 prose-blockquote:rounded-r-2xl
+          prose-blockquote:border-l-4 prose-blockquote:border-[#e52905]/50 prose-blockquote:pl-6 prose-blockquote:py-1 prose-blockquote:my-4 prose-blockquote:italic prose-blockquote:font-display prose-blockquote:text-md prose-blockquote:text-neutral-200 prose-blockquote:bg-neutral-900/90 prose-blockquote:rounded-r-2xl
           prose-img:rounded-xl prose-img:shadow-2xl prose-img:border prose-img:border-neutral-800
           prose-code:font-mono prose-code:text-[#e52905]/50 prose-code:bg-[#e52905]/10 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded-md prose-code:before:content-none prose-code:after:content-none
           prose-pre:bg-neutral-900 prose-pre:border prose-pre:border-neutral-800">
