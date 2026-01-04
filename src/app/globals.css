@@ -5,7 +5,7 @@
 @import 'tailwindcss/utilities';
 
 /* Lenis Smooth Scroll */
-@import 'lenis/dist/lenis.css';
+/* @import 'lenis/dist/lenis.css'; */
 
 /* Advanced Font Imports */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700&display=swap');
@@ -69,7 +69,7 @@ html {
   font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
 }
 
-html.lenis {
+/* html.lenis {
   height: auto;
 }
 
@@ -87,7 +87,7 @@ html.lenis {
 
 .lenis.lenis-scrolling iframe {
   pointer-events: none;
-}
+} */
 
 body {
   font-family: var(--font-body);

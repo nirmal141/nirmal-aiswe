@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp, X, Loader2, ChevronUp, ChevronDown, MessageCircle } from 'lucide-react';
 
@@ -24,6 +25,9 @@ export default function ChatBot() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const pathname = usePathname();
+
+
 
   // Fetch remaining questions from server on mount
   useEffect(() => {
@@ -218,6 +222,8 @@ export default function ChatBot() {
     setIsOpen(false);
     setIsExpanded(false);
   };
+
+  if (pathname?.startsWith('/blog')) return null;
 
   // Mobile floating button
   if (isMobile) {

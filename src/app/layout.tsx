@@ -17,7 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <ThemeProvider>
-          <SmoothScroll />
+          {/* <SmoothScroll /> */}
           <div className="hidden md:block">
             <CustomCursor />
           </div>

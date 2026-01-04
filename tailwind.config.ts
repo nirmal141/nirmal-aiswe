@@ -25,7 +25,7 @@ const config: Config = {
       colors: {
         gray: {
           50: "#fafafa",
-          100: "#f5f5f5", 
+          100: "#f5f5f5",
           200: "#e5e5e5",
           300: "#d4d4d4",
           400: "#a3a3a3",
@@ -102,7 +102,8 @@ const config: Config = {
     },
   },
   plugins: [
-    function({ addUtilities }: any) {
+    require("@tailwindcss/typography"),
+    function ({ addUtilities }: any) {
       addUtilities({
         '.text-display': {
           fontFamily: 'Playfair Display, serif',
