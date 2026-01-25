@@ -3,58 +3,9 @@
 
 'use client';
 
-import { motion, useMotionValue, useMotionTemplate } from 'framer-motion';
-import Image from 'next/image';
-import { MouseEvent } from 'react';
+import { motion } from 'framer-motion';
 import { Smoke } from '@/components/ui/smoke';
 
-function SpotlightAvatar() {
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  function handleMouseMove({ currentTarget, clientX, clientY }: MouseEvent) {
-    const { left, top } = currentTarget.getBoundingClientRect();
-    mouseX.set(clientX - left);
-    mouseY.set(clientY - top);
-  }
-
-  const maskImage = useMotionTemplate`radial-gradient(circle 280px at ${mouseX}px ${mouseY}px, black, transparent)`;
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-      animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-      transition={{ duration: 3, ease: "easeOut" }}
-      className="absolute z-0 w-full max-w-[500px] h-[40vh] md:h-[60vh] lg:h-[70vh] select-none group"
-      onMouseMove={handleMouseMove}
-    >
-      {/* 1. Base Layer: Grayscale & Stylized */}
-      <div className="absolute inset-0 w-full h-full mask-fade-bottom grayscale contrast-110 brightness-90">
-        <Image
-          src="/headshot_cutout.png"
-          alt="Nirmal Boghara Base"
-          fill
-          className="object-contain object-bottom"
-          priority
-        />
-      </div>
-
-      {/* 2. Reveal Layer: Full Color, Hidden by Default, Revealed by Mask */}
-      <motion.div 
-        className="absolute inset-0 w-full h-full mask-fade-bottom reveal-on-mobile"
-        style={{ maskImage, WebkitMaskImage: maskImage }}
-      >
-        <Image
-          src="/headshot_cutout.png"
-          alt="Nirmal Boghara Color"
-          fill
-          className="object-contain object-bottom"
-          priority
-        />
-      </motion.div>
-    </motion.div>
-  );
-}
 
 export default function MinimalHero() {
   return (
@@ -105,43 +56,26 @@ export default function MinimalHero() {
         {/* CENTERPIECE */}
         <div className="relative flex flex-col items-center justify-center">
           
-          {/* Avatar - Spotlight Reveal Effect */}
-          <SpotlightAvatar />
-
-          {/* Typography - Intertwined with image */}
-          <div className="relative z-10 text-center mix-blend-normal mt-[40vh] md:mt-48">
+          {/* Typography */}
+          <div className="relative z-10 text-center mix-blend-normal mt-0 space-y-6">
             <motion.h1 
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-              className="font-stranger text-[#e5e5e5] stranger-glow-contain text-5xl sm:text-7xl md:text-8xl lg:text-[8vw] leading-[0.9] tracking-tight"
-              data-text="NIRMAL"
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="font-display text-4xl md:text-5xl font-medium text-white tracking-tight"
             >
-              NIRMAL
+              Nirmal Boghara
             </motion.h1>
             
-            <motion.h1 
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-              className="font-stranger text-[#e5e5e5] stranger-glow-contain text-5xl sm:text-7xl md:text-8xl lg:text-[8vw] leading-[0.9] tracking-tight md:mt-[-2vw]"
-              data-text="BOGHARA"
+            <motion.p
+               initial={{ opacity: 0 }}
+               animate={{ opacity: 1 }}
+               transition={{ duration: 1, delay: 0.2 }}
+               className="font-heading text-lg md:text-xl font-light text-neutral-400 leading-relaxed tracking-wide text-balance max-w-xl mx-auto"
             >
-              B<span className="text-[#e52905]">OG</span>HARA
-            </motion.h1>
-          </div>
-
-          {/* Subtext */}
-          <motion.div
-             initial={{ opacity: 0 }}
-             animate={{ opacity: 1 }}
-             transition={{ duration: 1.5, delay: 0.8 }}
-             className="mt-12 md:mt-2 max-w-sm md:max-w-md text-center z-20"
-          >
-             <p className="font-heading text-sm md:text-base font-light text-neutral-400 leading-relaxed tracking-wide text-balance">
                Merging code, creativity, and business to redefine what's possible with AI.
-             </p>
-          </motion.div>
+            </motion.p>
+          </div>
         
         </div>
 

@@ -18,9 +18,6 @@ export default function RootLayout({
       <body className={inter.className}>
         <ThemeProvider>
           {/* <SmoothScroll /> */}
-          <div className="hidden md:block">
-            <CustomCursor />
-          </div>
           {children}
           <ChatBot />
         </ThemeProvider>

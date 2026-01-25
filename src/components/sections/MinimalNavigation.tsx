@@ -9,12 +9,7 @@ import { Menu, X, Clock } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const navItems = [
-  { name: 'Story', href: '/story' },
-  { name: 'Projects', href: '/projects' },
-  { name: 'Blog', href: '/blog' },
-  { name: 'Contact', href: '/contact' }
-];
+const navItems: { name: string; href: string }[] = [];
 
 export default function MinimalNavigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -72,11 +67,11 @@ export default function MinimalNavigation() {
         className="fixed top-4 sm:top-6 left-0 right-0 z-40 flex justify-center px-4 sm:px-6"
       >
         <motion.div
-          className={`w-full max-w-4xl transition-all duration-500 ease-out ${
+          className={`w-auto transition-all duration-500 ease-out ${
             isScrolled
               ? 'bg-white/10 dark:bg-black/10 backdrop-blur-2xl border border-white/20 dark:border-white/10 shadow-2xl shadow-black/5 dark:shadow-black/20'
               : 'bg-white/5 dark:bg-black/5 backdrop-blur-xl border border-white/10 dark:border-white/5 shadow-xl shadow-black/5'
-          } rounded-2xl`}
+          } rounded-full`}
           animate={{
             boxShadow: isScrolled 
               ? ['0 25px 50px -12px rgba(0, 0, 0, 0.05)', '0 25px 50px -12px rgba(0, 0, 0, 0.1)', '0 25px 50px -12px rgba(0, 0, 0, 0.05)']
@@ -91,7 +86,7 @@ export default function MinimalNavigation() {
             transition: { duration: 0.3, ease: 'easeOut' }
           }}
         >
-          <div className="flex items-center justify-between h-14 sm:h-16 px-6 sm:px-8">
+          <div className="flex items-center gap-12 sm:gap-16 h-12 sm:h-14 px-5 sm:px-6">
           {/* Logo */}
           <div className="flex items-center gap-3 sm:gap-6">
             <Link href="/" passHref legacyBehavior>
