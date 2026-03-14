@@ -876,7 +876,7 @@ export default function MinimalStory() {
                     Currently
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Building mutliple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
+                    Building multiple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>
