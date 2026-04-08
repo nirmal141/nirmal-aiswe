@@ -12,7 +12,7 @@ interface Message {
   timestamp: Date;
 }
 
-const DAILY_LIMIT = 5;
+const DAILY_LIMIT = 3;
 
 export default function ChatBot() {
   const [isOpen, setIsOpen] = useState(false); // For mobile modal
@@ -91,7 +91,7 @@ export default function ChatBot() {
       const limitMessage: Message = {
         id: Date.now().toString(),
         role: 'assistant',
-        content: "You've reached your daily limit of 5 questions. Please come back tomorrow, or reach out to Nirmal directly at nb3964@nyu.edu.",
+        content: "You've reached your daily limit of 3 questions. Please come back tomorrow, or reach out to Nirmal directly at nb3964@nyu.edu.",
         timestamp: new Date(),
       };
       setMessages(prev => [...prev, limitMessage]);
@@ -137,7 +137,7 @@ export default function ChatBot() {
         const limitMessage: Message = {
           id: (Date.now() + 1).toString(),
           role: 'assistant',
-          content: "You've reached your daily limit of 5 questions. Please come back tomorrow, or reach out to Nirmal directly at nb3964@nyu.edu.",
+          content: "You've reached your daily limit of 3 questions. Please come back tomorrow, or reach out to Nirmal directly at nb3964@nyu.edu.",
           timestamp: new Date(),
         };
         setMessages(prev => [...prev, limitMessage]);

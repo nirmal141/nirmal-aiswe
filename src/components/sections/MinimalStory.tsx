@@ -18,7 +18,8 @@ const milestones = [
     description: 'Dropshipping made easy.',
     achievement: 'Learned a lot and this gave me a founders mindset',
     type: 'experience',
-    website: 'https://conduitcommerce.com'
+    website: 'https://conduitcommerce.com',
+    logo: 'https://logo.clearbit.com/conduitcommerce.com'
   },
   {
     id: 'nyu-research',
@@ -241,15 +242,28 @@ const MilestoneCard = ({ milestone, index, isActive }: { milestone: any; index: 
 
         {/* Title & Company */}
         <div className="mb-4">
-          <h3 className="text-2xl font-medium text-gray-900 dark:text-white mb-1 group">
-            {milestone.title}
-            {milestone.type === 'experience' && (
-              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300">Experience</span>
+          <div className="flex items-center gap-3 mb-1">
+            {milestone.logo && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={milestone.logo}
+                alt={`${milestone.company} logo`}
+                width={32}
+                height={32}
+                className="rounded-md object-contain bg-white border border-gray-100 p-0.5"
+                onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
+              />
             )}
-            {milestone.type === 'education' && (
-              <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-emerald-50 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300">Education</span>
-            )}
-          </h3>
+            <h3 className="text-2xl font-medium text-gray-900 dark:text-white group">
+              {milestone.title}
+              {milestone.type === 'experience' && (
+                <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-blue-50 dark:bg-blue-900 text-blue-600 dark:text-blue-300">Experience</span>
+              )}
+              {milestone.type === 'education' && (
+                <span className="inline-flex ml-3 px-2 py-1 text-xs font-medium rounded-full bg-emerald-50 dark:bg-emerald-900 text-emerald-600 dark:text-emerald-300">Education</span>
+              )}
+            </h3>
+          </div>
                           <div className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
             {milestone.website ? (
               <a 
@@ -862,7 +876,7 @@ export default function MinimalStory() {
                     Currently
                   </h3>
                   <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Building mutliple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
+                    Building multiple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
                   </p>
                   <div className="flex items-center gap-2">
                     <div className="w-2 h-2 bg-green-500 rounded-full"></div>

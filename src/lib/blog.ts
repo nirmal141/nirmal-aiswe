@@ -32,7 +32,7 @@ export function getPostBySlug(slug: string): BlogPost {
         excerpt: data.excerpt,
         coverImage: data.coverImage,
         content,
-        readingTime: '3 min read', // You can add a real reading time calculation later
+        readingTime: `${Math.max(1, Math.ceil(content.split(/\s+/).length / 200))} min read`,
     };
 }
 

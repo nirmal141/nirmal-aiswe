@@ -28,7 +28,7 @@ const contactMethods = [
   {
     icon: FileText,
     label: 'Portfolio',
-    href: '/portfolio',
+    href: '/#projects',
     description: 'Complete project showcase'
   }
 ];
