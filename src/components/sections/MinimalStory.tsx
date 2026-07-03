@@ -11,25 +11,14 @@ import Image from 'next/image';
 const milestones = [  
   {
     id: 'conduit',
-    year: 'January 2026 - Present',
-    title: 'Software Engineering Intern',
+    year: 'May 2026 - Present',
+    title: 'Software Engineer, Platform',
     company: 'Conduit Commerce',
     location: 'New York, NY',
     description: 'Dropshipping made easy.',
     achievement: 'Learned a lot and this gave me a founders mindset',
     type: 'experience',
     website: 'https://conduitcommerce.com'
-  },
-  {
-    id: 'nyu-research',
-    year: 'Oct 2025 - Present',
-    title: 'Research Assistant',
-    company: 'NYU Center for Data Science',
-    location: 'New York, NY',
-    description: 'Researching on active learning / reinforcement learning techniques for improving the accuracy of landmine detection systems. Helping organizations plan their demining strategies based on the risk map.',
-    achievement: 'Research & Innovation',
-    type: 'experience',
-    website: 'https://cds.nyu.edu'
   },
   {
     id: 'hacknyu',
