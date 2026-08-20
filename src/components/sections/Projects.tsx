@@ -13,14 +13,14 @@ const projects = [
     title: 'CodeRalph',
     subtitle: 'real-time collaborative code editor',
     year: '2025',
-    description: 'A next-generation real-time collaborative code editor with Ghost Agents - intelligent, proactive assistants that augment your development workflow with live collaboration, predictive conflict resolution, and automated code visualization completely powered by the combination of Minimax Agents, Gemini 3 Pro and Nano Banana Pro.',
-    tech: ['Minimax Agents', 'Gemini', 'Yjs', 'WebSockets', 'CRDTs', 'TypeScript', 'Monaco Editor', 'Shadcn/UI'],
+    description: 'Created a real-time collaborative IDE with Next.js, Yjs, Electron, WebSockets, Babel AST analysis, and multi-agent LLM workflows with Ghost Agents that augment development with live collaboration, predictive conflict resolution, and automated code visualization. Won the AIE Code Agents Hackathon.',
+    tech: ['Next.js', 'Yjs', 'Electron', 'WebSockets', 'Babel AST', 'TypeScript', 'Multi-Agent LLMs', 'Monaco Editor'],
     metrics: [
-      { label: 'Collaboration', value: 'Real-time' },
+      { label: 'Collaboration', value: 'Real-time CRDT' },
       { label: 'Conflict Resolution', value: 'Predictive' },
-      { label: 'Automation', value: 'Automated Code Visualization' }
+      { label: 'Award', value: 'AIE Hackathon Winner' }
     ],
-    status: 'In Production / Hackathon Winner',
+    status: 'Hackathon Winner',
     link: 'https://coderalph.com',
     featured: true
   },

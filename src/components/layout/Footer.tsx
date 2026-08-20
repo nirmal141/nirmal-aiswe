@@ -68,11 +68,11 @@ export default function Footer() {
               {/* Current Status */}
               <div className="flex items-center gap-3 mb-6">
                 <div className="relative">
-                  <div className="w-2.5 h-2.5 bg-green-500 rounded-full"></div>
-                  <div className="absolute inset-0 bg-green-400 rounded-full animate-ping opacity-75" style={{ animationDuration: '2s' }}></div>
+                  <div className="w-2.5 h-2.5 bg-blue-500 rounded-full"></div>
+                  <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-75" style={{ animationDuration: '2s' }}></div>
                 </div>
-                <Caption className="text-green-400 font-medium">
-                  Available for new projects
+                <Caption className="text-blue-400 font-medium">
+                  Software Engineer @ Conduit Commerce
                 </Caption>
               </div>
 
@@ -144,7 +144,7 @@ export default function Footer() {
                 
                 <div>
                   <div className="text-gray-500 mb-1.5 font-medium">Location</div>
-                  <div className="text-gray-800 dark:text-gray-200">New York, NY</div>
+                  <div className="text-gray-800 dark:text-gray-200">Bellevue, WA</div>
                 </div>
                 
                 <div>

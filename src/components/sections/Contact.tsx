@@ -34,25 +34,25 @@ const contactMethods = [
 ];
 
 const availabilityStatus = {
-  status: 'Available',
-  nextAvailable: 'Immediate',
-  timezone: 'EST (UTC-5)',
+  status: 'Employed Full-Time',
+  nextAvailable: 'Building @ Conduit',
+  timezone: 'PST (UTC-8) / EST (UTC-5)',
   responseTime: '< 24 hours'
 };
 
 const interests = [
-  'AI & Machine Learning Projects',
-  'Full-Stack Development',
-  'Data Science Consulting',
-  'Technical Mentoring',
-  'Open Source Collaboration',
-  'Speaking Opportunities'
+  'AI & Agentic Systems Architecture',
+  'Multi-Agent & RL Systems',
+  'Distributed Systems & Temporal',
+  'Technical Mentoring & Hackathon Judging',
+  'Open Source & Research Collaboration',
+  'Speaking & Tech Talks'
 ];
 
 const currentLocation = {
-  city: 'New York',
+  city: 'Bellevue, WA',
   country: 'USA',
-  open_to: 'Remote & On-site'
+  open_to: 'Software Engineer @ Conduit'
 };
 
 export default function Contact() {
@@ -82,8 +82,8 @@ export default function Contact() {
             
             <div className="flex justify-center items-center gap-8 text-sm">
               <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-gray-700 dark:text-gray-300 font-medium">Available for new projects</span>
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <span className="text-gray-700 dark:text-gray-300 font-medium">Software Engineer @ Conduit Commerce</span>
               </div>
               <MonoText className="text-gray-500 dark:text-gray-400">
                 {currentLocation.city}, {currentLocation.country}

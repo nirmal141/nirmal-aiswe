@@ -11,45 +11,45 @@ import Image from 'next/image';
 const milestones = [  
   {
     id: 'conduit',
-    year: 'January 2026 - Present',
-    title: 'Software Engineering Intern',
+    year: 'Jan 2026 - Present',
+    title: 'Software Engineer',
     company: 'Conduit Commerce',
-    location: 'New York, NY',
-    description: 'Dropshipping made easy.',
-    achievement: 'Learned a lot and this gave me a founders mindset',
+    location: 'Bellevue, WA',
+    description: 'Took end-to-end ownership of the customer-facing web platform for Apex, unifying fragmented CRM, ERP, catalog, pricing, inventory, and customer data into one AI-assisted workflow that reduced sales-rep lookup and inquiry-triage time by 90% (internship conversion). Engineered full-mailbox/shared-inbox workflows across FastAPI, MongoDB, Temporal, and Microsoft Graph. Hardened 100K-row scale search and quoting with MongoDB Atlas Search, and built the orchestration layer for Ask AI agentic copilot with LangGraph and Temporal.',
+    achievement: '90% Triage Reduction & Full-Time Conversion',
     type: 'experience',
     website: 'https://conduitcommerce.com'
   },
   {
     id: 'nyu-research',
-    year: 'Oct 2025 - Present',
-    title: 'Research Assistant',
+    year: 'Oct 2025 - Jan 2026',
+    title: 'Lead Research Assistant',
     company: 'NYU Center for Data Science',
     location: 'New York, NY',
-    description: 'Researching on active learning / reinforcement learning techniques for improving the accuracy of landmine detection systems. Helping organizations plan their demining strategies based on the risk map.',
-    achievement: 'Research & Innovation',
+    description: 'Designed non-myopic active-search models for landmine-risk assessment across 20+ regions, improving recall by 14% over baselines; published a first-author paper at LatinX in AI @ ICML 2026.',
+    achievement: '+14% Recall | ICML 2026 First-Author Paper',
     type: 'experience',
     website: 'https://cds.nyu.edu'
   },
   {
     id: 'hacknyu',
-    year: 'June 2025 - Present',
+    year: 'Jun 2025 - Feb 2026',
     title: 'Technical Project Manager',
     company: 'HackNYU',
     location: 'New York, NY',
-    description: 'Responsible for managing the technical aspects of the hackathon.',
-    achievement: 'Leadership and Teamwork',
+    description: 'Led a 6-person engineering team as Technical Project Manager, managing technical architecture, platform execution, and infrastructure for the university hackathon.',
+    achievement: 'Led 6-Person Engineering Team',
     type: 'experience',
     website: 'https://hacknyu.org'
   },
   {
     id: 'qualcomm',
-    year: 'February 2025 - Present',
+    year: 'Feb 2025 - Mar 2026',
     title: 'Technical Ambassador',
     company: 'Qualcomm',
     location: 'New York, NY',
-    description: 'Developed low-latency AI teaching assistant with 92% accuracy through Agentic RAG architecture.',
-    achievement: '92% AI Accuracy',
+    description: 'Implemented an offline AI teaching assistant with Qwen-1.5B, ONNX Runtime, and agentic RAG, reaching 92% accuracy; mentored 215+ students on model quantization and edge deployment across Columbia, Princeton, NYU, and Northeastern.',
+    achievement: '92% AI Accuracy & 215+ Mentored',
     type: 'experience',
     website: 'https://www.qualcomm.com',
     subAchievements: [
@@ -107,12 +107,12 @@ const milestones = [
   },
   {
     id: 'chewy',
-    year: 'May 2025 - August 2025',
+    year: 'Jun 2025 - Aug 2025',
     title: 'AI Innovator Intern II',
     company: 'Chewy',
     location: 'Boston, MA',
-    description: 'Leading development of Agentic Copilot for Marketing team. Built ML models that saved $16M+ in annual revenue. Delivering the final presentation to the CEO and other executives at Florida HQ.',
-    achievement: 'Think Big',
+    description: 'Led an agent-based marketing Copilot over 5M+ customer touchpoints in Snowflake, enabling real-time cohorting and 2x faster A/B testing; launched pilot campaigns that reduced unsubscribe rate from 5.3% to 3.3%. Developed XGBoost propensity models across 50K+ SKUs identifying ~$16M in annual revenue at risk with 100% ROAS lift, presenting results to CEO and executive leadership.',
+    achievement: '$16M+ Revenue Impact & 100% ROAS',
     type: 'experience',
     website: 'https://www.chewy.com'
   },
@@ -166,19 +166,19 @@ const milestones = [
     title: 'Artificial Intelligence Intern',
     company: 'Soulible Digital',
     location: 'Mumbai, India',
-    description: 'Engineered an AI-powered computer vision attendance system using YOLOv7 and TensorFlow, automating tracking for 200+ employees while reducing manual effort by 50% and boosting operational efficiency by 30% through cross-functional collaboration and Python-based optimization.   ',
+    description: 'Engineered an AI-powered computer vision attendance system using YOLOv7 and TensorFlow, automating tracking for 200+ employees while reducing manual effort by 50% and boosting operational efficiency by 30% through cross-functional collaboration and Python-based optimization.',
     achievement: 'Reducing manual effort and boosting operational efficiency',
     type: 'experience',
     website: 'https://soulible.com'
   },
   {
     id: 'feat-systems',
-    year: 'May 2023 - August 2023',
-    title: 'SDE Intern',
+    year: 'May 2023 - Aug 2023',
+    title: 'Software Development Engineering Intern',
     company: 'Feat Systems',
-    location: 'Mumbai, India',
-    description: 'Transformed Java/Spring Boot applications using Agile practices and MySQL optimization, reducing customer complaints by 15% while accelerating new team member onboarding by 30% through streamlined CI/CD pipelines, comprehensive SDLC documentation, and seamless GitHub/Jira integration.',
-    achievement: 'Reducing customer complaints and accelerating new team member onboarding',
+    location: 'Maharashtra, India',
+    description: 'Migrated legacy Spring Boot services to Docker and Kubernetes, reducing cloud infrastructure costs by 18%; implemented MySQL improvements and SDLC documentation that accelerated developer onboarding by 30%.',
+    achievement: '18% Cost Reduction & 30% Faster Onboarding',
     type: 'experience',
     website: 'https://www.featsystems.com'
   },
@@ -195,12 +195,12 @@ const milestones = [
   },
   {
     id: 'education',
-    year: 'July 2020 - June 2024',
-    title: 'Computer Engineering Graduate',
+    year: 'Jul 2020 - Jun 2024',
+    title: 'BE in Computer Engineering',
     company: 'University of Mumbai',
-    location: 'Mumbai, India',
-    description: 'Graduated with expertise in AI, machine learning, and advanced algorithms. Built foundation for future innovations.',
-    achievement: 'BE Computer Engineering',
+    location: 'Maharashtra, India',
+    description: 'Graduated with a 3.8/4.0 GPA. Specialized in AI, machine learning, and advanced algorithms. Organized campus recruitment drives for 50+ companies.',
+    achievement: 'GPA: 3.8/4.0 | 50+ Recruiter Drives',
     type: 'education',
     website: 'https://mum.digitaluniversity.ac/'
   }
@@ -443,28 +443,31 @@ const YearNavigation = ({ years, activeYear, setActiveYear }: { years: string[];
 // Skills overview
 const SkillsOverview = () => {
   const skillCategories = [
-      {
-        title: 'AI & Machine Learning',
-        skills: ['Python / SageMaker', 'TensorFlow', 'PyTorch / Hugging Face', 'Scikit-learn', 'Langchain']
-      },
-      {
-          title: 'Development',
-          skills: ['JavaScript', 'TypeScript / Node.js', 'React / Tailwind CSS', 'Django / Flask', 'Next.js']
-        },
-        {
-            title: 'DevOps',
-            skills: ['Git / GitHub Actions', 'CI/CD', 'Docker', 'Kubernetes', 'AWS']
-        },
-        {
-            title: 'Data & Infrastructure',
-            skills: ['PostgreSQL / MySQL', 'AWS / GCP', 'Snowflake / RDS / Neo4j', 'MongoDB', 'Spark / Hadoop / Kafka']
-        },
-
+    {
+      title: 'Languages',
+      skills: ['Python', 'TypeScript', 'JavaScript', 'Java', 'SQL']
+    },
+    {
+      title: 'Frontend',
+      skills: ['React', 'Next.js', 'Material UI', 'TanStack Query', 'TipTap']
+    },
+    {
+      title: 'Backend & Systems',
+      skills: ['FastAPI', 'Pydantic', 'Temporal', 'Redis', 'Kafka', 'REST APIs', 'SSE']
+    },
+    {
+      title: 'AI & Machine Learning',
+      skills: ['LangGraph', 'LangChain', 'PyTorch', 'Scikit-learn', 'XGBoost', 'ONNX', 'RAG', 'LLM Evaluation']
+    },
+    {
+      title: 'Data & Cloud',
+      skills: ['MongoDB', 'PostgreSQL', 'Snowflake', 'Azure', 'AWS', 'Docker', 'Kubernetes']
+    }
   ];
 
   return (
     <section className="py-20 px-8">
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           className="text-center mb-16"
           {...fadeInUp}
@@ -477,7 +480,7 @@ const SkillsOverview = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {skillCategories.map((category, index) => (
             <motion.div
               key={category.title}
@@ -853,36 +856,38 @@ export default function MinimalStory() {
         <div className="max-w-4xl mx-auto text-center">
           <motion.div {...fadeInUp}>
             <Heading level={2} weight="medium" className="text-gray-900 dark:text-white mb-6">
-              What's Next
+              Current Focus
             </Heading>
             
-                          <div className="grid md:grid-cols-2 gap-8 text-left">
-                <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                    Currently
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Building mutliple projects, serving at HackNYU & Qualcomm. Pursuing MS in Computer Science at NYU.
-                  </p>
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                    <span className="text-sm text-green-700 dark:text-green-400">Available for opportunities</span>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8 text-left">
+              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
+                  Current Role
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Software Engineer at Conduit Commerce, building the next generation of AI-assisted commerce platforms (Apex) and graduating MS in Computer Science at NYU (May 2026).
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                  <span className="text-sm text-blue-600 dark:text-blue-400 font-medium">Software Engineer @ Conduit Commerce</span>
                 </div>
+              </div>
 
-                <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
-                  <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
-                    Looking For
-                  </h3>
-                  <p className="text-gray-700 dark:text-gray-300 mb-4">
-                    Full-time opportunities in AI/ML engineering, technical leadership roles, 
-                    or innovative startups building the future.
-                  </p>
+              <div className="p-6 bg-black/40 backdrop-blur-sm border border-white/20 rounded-lg shadow-sm hover:shadow-md transition-shadow">
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-3">
+                  Opportunity Status
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Converted from intern to full-time at Conduit Commerce. Closed to new job opportunities, but always open for technical networking, hackathon judging, and AI research discussions.
+                </p>
+                <div className="flex items-center gap-2">
+                  <div className="w-2 h-2 bg-neutral-400 rounded-full"></div>
                   <MonoText className="text-gray-500 dark:text-gray-400 text-sm">
-                    Expected graduation: May 2026
+                    Job Search: Closed
                   </MonoText>
                 </div>
               </div>
+            </div>
           </motion.div>
         </div>
       </section>

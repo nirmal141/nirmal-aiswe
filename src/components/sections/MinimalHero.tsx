@@ -50,7 +50,7 @@ export default function MinimalHero() {
           className="absolute top-28 right-8 md:top-12 md:right-12 flex flex-col gap-1 text-right"
         >
           <span className="text-[10px] md:text-xs font-mono tracking-[0.2em] text-neutral-500 uppercase">Based In</span>
-          <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">New York, NY</span>
+          <span className="text-xs md:text-sm font-light text-neutral-300 tracking-wide">Bellevue, WA</span>
         </motion.div>
 
         {/* CENTERPIECE */}
